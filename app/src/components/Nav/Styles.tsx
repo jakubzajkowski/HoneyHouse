@@ -53,3 +53,24 @@ export const BagSpan = styled.span`
     text-align:center;
     cursor:pointer;
 `
+export const MobileManuOptionContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3rem;
+    width: 100%;
+    margin: 8rem 0 0rem 0;
+    text-align: left;
+`
+export const MobileManuOptionContainerOption = styled.p`
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 0 3rem;
+`
+export const MobileManuClose = styled.p`
+    position: absolute;
+    top:0px;
+    right: 0px;
+    margin:3rem;
+    font-weight: bold;
+`
