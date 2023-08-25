@@ -5,15 +5,32 @@ import MobileMenu from './MobileMenu'
 import { AnimatePresence } from 'framer-motion'
 
 const Nav:React.FC = () => {
+  const [visible, setVisible] = useState(true)
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isMobileMenu,setIsMobileMenu]=useState<boolean>(false)
 
+  const handleScroll = () => {
+    const currentScrollPos = window.scrollY
+
+    if(currentScrollPos > prevScrollPos){
+        setVisible(false)
+    }else{
+        setVisible(true)
+    }
+
+    setPrevScrollPos(currentScrollPos)
+  }
+
   useEffect(()=>{
+    window.addEventListener('scroll', handleScroll);
+
     if(isMobileMenu){
       document.body.style.overflow = 'hidden';
     }
     else{
       document.body.style.overflow = 'auto';
     }
+    return () => window.removeEventListener('scroll', handleScroll)
   })
 
   return (
@@ -21,7 +38,7 @@ const Nav:React.FC = () => {
       <AnimatePresence>
       {isMobileMenu && <MobileMenu setIsMobileMenu={setIsMobileMenu}/>}
       </AnimatePresence>
-      <NavBar>
+      <NavBar initial={{y:'0%'}} animate={{y: !visible ? '-100%' : '0%'}} transition={{ease:'easeInOut',duration:'0.5'}}>
           <NavBarGroup>
               <NavBarOption><Link to='/shop' style={LinkStyle}>shop</Link></NavBarOption>
               <NavBarOption><Link to='/pictures' style={LinkStyle}>pictures</Link></NavBarOption>

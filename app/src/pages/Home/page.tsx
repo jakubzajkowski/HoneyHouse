@@ -1,11 +1,14 @@
 import React from 'react'
 import Nav from '../../components/Nav/Nav'
+import { Main,Header } from './styles'
 
 const Home:React.FC = () => {
   return (
-    <div>
+    <div style={{width:'100%'}}>
       <Nav />
-      home
+      <Main>
+        <Header>Welcome to Honey House</Header>
+      </Main>
     </div>
   )
 }
