@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { NavBar,NavBarOption,LinkStyle,NavBarGroup,Logo,NavBarMobileGroup,BarsStyle,BagStyle,BagSpan } from './Styles'
+import { NavBar,NavBarOption,LinkStyle,NavBarGroup,Logo,NavBarMobileGroup,BarsStyle,BagStyle,BagSpan } from './styles'
 import {Link} from 'react-router-dom'
 import MobileMenu from './MobileMenu'
 import { AnimatePresence } from 'framer-motion'
