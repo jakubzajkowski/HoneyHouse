@@ -75,3 +75,21 @@ export const MobileManuClose = styled.p`
     margin:3rem;
     font-weight: bold;
 `
+export const FooterElement = styled.div`
+    @media(max-width: 950px){
+        width:100%;
+    }
+`
+export const FooterContainer = styled.div`
+    margin: 3rem 0 3rem 20%;
+    width: 80%;
+    display: flex;
+    gap: 3rem;
+    justify-content: start;
+    flex-wrap: wrap;
+    font-size:1.1rem;
+`
+export const FooterOptionStyle = {
+    margin: '2rem 3rem',
+    cursor: 'pointer',
+}

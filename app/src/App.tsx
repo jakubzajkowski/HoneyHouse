@@ -2,6 +2,7 @@ import Home from './pages/Home/page';
 import Shop from './pages/Shop/page';
 import { Provider } from 'react-redux';
 import store from './Redux/Reducer';
+import Footer from './components/Nav/Footer/Footer';
 import {
   BrowserRouter as Router,
   Routes,
@@ -18,6 +19,7 @@ function App() {
           <Route path='/shop' element={<Shop />}/>
         </Routes>
       </Router>
+      <Footer />
     </Provider>
   )
 }
