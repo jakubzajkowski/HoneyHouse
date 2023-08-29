@@ -53,3 +53,33 @@ export const ProductElementTitle = styled(motion.p)`
     font-weight: bold;
     margin: 1rem 0.5rem 4rem 0.5rem;
 `
+export const Wallpapar = styled.img`
+    width: 80%;
+    height: 700px;
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(140,140,140,1);
+    -moz-box-shadow: 0px 0px 10px 1px rgba(140,140,140,1);
+    box-shadow: 0px 0px 10px 1px rgba(140,140,140,1);
+    @media(max-width: 950px){
+        width: 90%;
+        height: 300px;
+    }
+`
+export const WallpaparContainer = styled.div`
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    margin: 3rem 0;
+    cursor: pointer;
+`
+export const WallpaparText = styled.p`
+    font-weight: bold;
+    font-size: 2rem;
+    writing-mode:vertical-lr;
+    text-align:center;
+    margin: 0rem 3rem;
+    @media(max-width: 950px){
+        width: 100%;
+        writing-mode:horizontal-tb;
+        margin: 1rem 3rem;
+    }
+`

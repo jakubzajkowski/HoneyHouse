@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { ProductsType } from '../../../Redux/state'
-import { ProductElement,ProductElementImg,ProductElementPrice,ProductElementTitle } from '../styles'
+import { ProductsType } from '../../../../Redux/state'
+import { ProductElement,ProductElementImg,ProductElementPrice,ProductElementTitle } from '../../styles'
 import { useMediaQuery } from 'react-responsive'
 
 interface ProductProps {
