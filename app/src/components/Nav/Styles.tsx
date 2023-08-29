@@ -92,4 +92,5 @@ export const FooterContainer = styled.div`
 export const FooterOptionStyle = {
     margin: '2rem 3rem',
     cursor: 'pointer',
+    fontFamily: "'Gloria Hallelujah', cursive"
 }
