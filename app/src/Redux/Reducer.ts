@@ -1,12 +1,18 @@
 import { createStore,applyMiddleware } from 'redux'
 import thunk from "redux-thunk";
 import { initialState } from './state';
+import { ProductsType } from './state';
+
+interface ActionType {
+  type: string,
+  payload: ProductsType[]
+}
 
 
-function counterReducer(state = initialState, action:{type:string,payload:any}) {
+function counterReducer(state = initialState, action:ActionType) {
   switch (action.type) {
-    case 'TEST_THUNK':
-      return { ...state, data: action.payload }
+    case 'PRODUCTS_API_ACTION':
+      return { ...state, products: action.payload }
     default:
       return state
   }

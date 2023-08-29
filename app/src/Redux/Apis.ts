@@ -1,10 +1,11 @@
 import axios from "axios";
-import { testThunk } from "./Actions";
+import { productsApiAction } from "./Actions";
 import { AnyAction,Dispatch } from "redux";
+import { ProductsType } from "./state";
 
-export const fetchTestData=(dispatch:Dispatch<AnyAction>):any=>{
-    return axios.get("http://api.nbp.pl/api/exchangerates/rates/a/gbp/last/10/?format=json")
+export const fetchProductsData=(dispatch:Dispatch<AnyAction>):any=>{
+    return axios.get("http://127.0.0.1:3000/api/products")
       .then(({ data }) => {
-      dispatch(testThunk(data));
+      dispatch(productsApiAction<ProductsType[]>(data));
     });
 }

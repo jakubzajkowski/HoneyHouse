@@ -51,7 +51,7 @@ const Nav:React.FC = () => {
                 <p style={BagStyle}>bag <BagSpan>0</BagSpan></p>
           </NavBarMobileGroup>
           <NavBarGroup>
-              <NavBarOption><Link to='/shop' style={LinkStyle}>Poland (PLN/zł)</Link></NavBarOption>
+              <NavBarOption><Link to='/shop' style={LinkStyle}>Europe (EUR)</Link></NavBarOption>
               <NavBarOption>search</NavBarOption>
               <NavBarOption><Link to='/pictures' style={LinkStyle}>log in</Link></NavBarOption>
               <NavBarOption>bag</NavBarOption>
