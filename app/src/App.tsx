@@ -14,12 +14,8 @@ function App() {
     <Provider store={store}>
       <Router>
         <Routes>
-          <Route path='/' element={<Home />}>
-          </Route>
-        </Routes>
-        <Routes>
-          <Route path='/shop' element={<Shop />}>
-          </Route>
+          <Route path='/' element={<Home />}/>
+          <Route path='/shop' element={<Shop />}/>
         </Routes>
       </Router>
     </Provider>
