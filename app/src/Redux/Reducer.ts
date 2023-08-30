@@ -9,16 +9,18 @@ interface ActionType {
 }
 
 
-function counterReducer(state = initialState, action:ActionType) {
+function Reducer(state = initialState, action:ActionType) {
   switch (action.type) {
     case 'PRODUCTS_API_ACTION':
       return { ...state, products: action.payload }
+    case 'SHOP_PRODUCTS_API_ACTION':
+      return { ...state, shopProducts: action.payload }
     default:
       return state
   }
 }
 
 
-const store = createStore(counterReducer,applyMiddleware(thunk))
+const store = createStore(Reducer,applyMiddleware(thunk))
 
 export default store

@@ -17,6 +17,7 @@ export const NavBarOption = styled.p`
     cursor:pointer;
 `
 export const Logo = styled.h2`
+    cursor:pointer;
     text-shadow: 1px 1px 3px #e6ad00, 1px 1px 3px #e6ad00;
 `
 export const NavBarMobileGroup = styled.div`
