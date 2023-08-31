@@ -11,3 +11,9 @@ export const productsApiAction = <payloadType>(data:payloadType):{type: string, 
      payload: data
    }
 }
+export const productApiAction = <payloadType>(data:payloadType):{type: string, payload: payloadType} => {
+   return {
+      type: "PRODUCT_API_ACTION",
+      payload: data
+    }
+ }

@@ -1,6 +1,7 @@
 export interface InitialStateType{
     theme: boolean
     products: ProductsType[] | null
+    product: ProductsType | null
     shopProducts: ProductsType[] | null
 }
 
@@ -23,5 +24,6 @@ export interface ProductsType{
 export const initialState: InitialStateType = {
     theme: false,
     products: null,
+    product: null,
     shopProducts: null
 }

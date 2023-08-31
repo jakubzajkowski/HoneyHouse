@@ -10,5 +10,5 @@ const ProductController_1 = __importDefault(require("../controllers/ProductContr
 const api = express_1.default.Router();
 api.get('/products', ProductsController_1.default);
 api.get('/products/:category', CategoryController_1.default);
-api.get('/products/:id', ProductController_1.default);
+api.get('/product/:id', ProductController_1.default);
 exports.default = api;

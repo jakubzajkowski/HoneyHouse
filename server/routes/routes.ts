@@ -7,6 +7,6 @@ const api = express.Router();
 
 api.get('/products', ProductsController)
 api.get('/products/:category', CategoryController)
-api.get('/products/:id', ProductController)
+api.get('/product/:id', ProductController)
 
 export default api
