@@ -21,10 +21,10 @@ const Product:React.FC = () => {
             <Nav />
             <ProductContainer>
                 <ProductImgSide>
-                    <h1 style={{textAlign:'center',width:'50%',fontFamily:"'Bebas Neue', sans-serif"}}>{product?.name}</h1>
                     <ProductImg src={product?.img} alt="img honey" />
                 </ProductImgSide>
                 <ProductInfoSide>
+                    <h1 style={{margin:'1rem 0',fontFamily:"'Bebas Neue', sans-serif"}}>{product?.name}</h1>
                     <ProductDesc>{product?.desc}</ProductDesc>
                     <p style={{margin:'2rem 0',fontWeight:'bold'}}>{product?.price}0  &euro; / EUR</p>
                     <p style={{margin:'2rem 0'}}>Weight: {(product?.weight as number/1000)} kg</p>

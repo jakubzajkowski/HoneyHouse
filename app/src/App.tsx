@@ -5,11 +5,8 @@ import store from './Redux/Reducer';
 import Footer from './components/Footer/Footer';
 import Product from './pages/Shop/[Product]/page';
 import Register from './pages/Register/page';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import Login from './pages/Login/page';
+import {BrowserRouter as Router,Routes,Route,} from "react-router-dom";
 
 function App() {
   return (
@@ -20,6 +17,7 @@ function App() {
           <Route path='/shop' element={<Shop />}/>
           <Route path='/shop/product/:id' element={<Product />}/>
           <Route path='/register' element={<Register />}/>
+          <Route path='/login' element={<Login/>}/>
         </Routes>
       </Router>
       <Footer />

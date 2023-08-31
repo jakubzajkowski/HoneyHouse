@@ -1,8 +1,8 @@
 import React from 'react'
 import Nav from '../../components/Nav/Nav'
-import { Main,RegisterHeader,RegisterButton,RegisterInput,RegisterForm } from './style'
+import { Main,RegisterHeader,RegisterButton,RegisterInput,RegisterForm } from './styles'
 
-const Register = () => {
+const Register:React.FC = () => {
   return (<Main> 
         <Nav />
         <RegisterHeader>Create Account</RegisterHeader>

@@ -16,7 +16,7 @@ const MobileMenu:React.FC<MobileMenuProps> = ({setIsMobileMenu}) => {
             <MobileManuOptionContainerOption><Link to='/pictures' style={LinkStyle}>Picture</Link></MobileManuOptionContainerOption>
             <MobileManuOptionContainerOption><Link to='/search' style={LinkStyle}>Search</Link></MobileManuOptionContainerOption>
             <MobileManuOptionContainerOption><Link to='/country' style={LinkStyle}>Country (EUR)</Link></MobileManuOptionContainerOption>
-            <MobileManuOptionContainerOption><Link to='/' style={LinkStyle}>Log in</Link></MobileManuOptionContainerOption>
+            <MobileManuOptionContainerOption><Link to='/login' style={LinkStyle}>Log in</Link></MobileManuOptionContainerOption>
         </MobileManuOptionContainer>
     </motion.div>
   )

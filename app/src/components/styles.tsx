@@ -95,6 +95,10 @@ export const FooterContainer = styled.div<StyleProps>`
     justify-content: start;
     flex-wrap: wrap;
     font-size:1.1rem;
+    @media(max-width: 950px){
+        margin: 3rem 0 3rem 0;
+        width: 100%;
+    }
 `
 export const FooterOptionStyle = {
     margin: '2rem 3rem',
