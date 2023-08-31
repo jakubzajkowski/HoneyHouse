@@ -16,10 +16,8 @@ const Home:React.FC = () => {
     fetchProductsData(dispatch)
   },[])
 
-  return (
-    <div style={{width:'100%'}}>
+  return (<Main>
       <Nav />
-      <Main>
         <Header>Welcome to Honey House</Header>
         <ProductContainer>
           {products?.map(product=><Product data={product} key={product.id}/>)}
@@ -28,7 +26,6 @@ const Home:React.FC = () => {
           WallpaperList.map(wallpaper=><Wallpaper text={wallpaper.text} img={wallpaper.img} key={wallpaper.text}/>)
         }       
       </Main>
-    </div>
   )
 }
 

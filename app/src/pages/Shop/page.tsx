@@ -19,7 +19,6 @@ const Shop:React.FC = () => {
   },[])
 
   return (
-    <div style={{width:'100%'}}>
       <Main>
         <Nav />
         <Filter setIsFilter={setIsfilter} productsCount={isFilter ? filterProducts?.length : products?.length}/>
@@ -33,7 +32,6 @@ const Shop:React.FC = () => {
             }
         </ProductContainer>
       </Main>
-    </div>
   )
 }
 

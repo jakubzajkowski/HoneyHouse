@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Main = styled.div`
     margin: 8rem 0 0 0;
+    width:100%;
 `
 export const ShopHeader = styled.h1`
     text-align:center;

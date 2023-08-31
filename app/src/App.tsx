@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import store from './Redux/Reducer';
 import Footer from './components/Footer/Footer';
 import Product from './pages/Shop/[Product]/page';
+import Register from './pages/Register/page';
 import {
   BrowserRouter as Router,
   Routes,
@@ -18,6 +19,7 @@ function App() {
           <Route path='/' element={<Home />}/>
           <Route path='/shop' element={<Shop />}/>
           <Route path='/shop/product/:id' element={<Product />}/>
+          <Route path='/register' element={<Register />}/>
         </Routes>
       </Router>
       <Footer />
