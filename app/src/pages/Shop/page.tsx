@@ -8,7 +8,6 @@ import { Main,ShopHeader } from './styles'
 import Filter from './components/Filter'
 import Product from '../Home/Components/Product/Product'
 
-
 const Shop:React.FC = () => {
   const [isFilter,setIsfilter] = useState<boolean>(false)
   const dispatch = useDispatch()
@@ -23,7 +22,7 @@ const Shop:React.FC = () => {
     <div style={{width:'100%'}}>
       <Main>
         <Nav />
-        <Filter setIsFilter={setIsfilter} productsCount={products?.length}/>
+        <Filter setIsFilter={setIsfilter} productsCount={isFilter ? filterProducts?.length : products?.length}/>
         <ShopHeader>Shop All</ShopHeader>
         <ProductContainer>
             {

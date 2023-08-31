@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from "framer-motion"
-import { MobileManuOptionContainer,MobileManuClose,MobileManuOptionContainerOption,LinkStyle } from './styles'
+import { MobileManuOptionContainer,MobileManuClose,MobileManuOptionContainerOption,LinkStyle } from '../styles'
 import { Link } from 'react-router-dom'
 
 interface MobileMenuProps {

@@ -12,6 +12,7 @@ export const FilterContainer = styled.div`
     display:flex;
     justify-content: space-between;
     padding:3rem;
+    flex-wrap: wrap;
     @media(max-width: 950px){
         padding:0.5rem;
         margin: 1rem 0 ;
@@ -20,6 +21,9 @@ export const FilterContainer = styled.div`
 export const FilterCategory = styled.div`
    display:flex;
    align-items:center;
+   @media(max-width: 950px){
+    width:100%;
+}
 `
 export const FilterCategorySelect = styled.select`
     border:none;
@@ -41,5 +45,9 @@ export const FilterCategoryOption = styled.option`
     }
 `
 export const FilterSort = styled.div`
-   
+   display:flex;
+   align-items:center;
+   @media(max-width: 950px){
+    width:100%;
+}
 `

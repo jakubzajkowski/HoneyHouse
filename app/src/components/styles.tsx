@@ -1,13 +1,18 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
-export const NavBar = styled(motion.div)`
+interface StyleProps {
+    theme: boolean;
+  }
+
+export const NavBar = styled(motion.div)<StyleProps>`
     position: fixed;
     top: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     background-color: white;
+    color: ${props => props.theme==true ? "#e6ad00" : "black"};
     align-items:center;
     padding: 1.5rem
 `
@@ -81,10 +86,11 @@ export const FooterElement = styled.div`
         width:100%;
     }
 `
-export const FooterContainer = styled.div`
+export const FooterContainer = styled.div<StyleProps>`
     margin: 3rem 0 3rem 20%;
     width: 80%;
     display: flex;
+    color: ${props => props.theme==true ? "green" : "black"};
     gap: 3rem;
     justify-content: start;
     flex-wrap: wrap;

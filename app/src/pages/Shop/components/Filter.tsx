@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FilterContainer,FilterCategory,FilterSort,FilterCategorySelect,FilterCategoryOption} from '../styles'
 import { fetchShopProductsData } from '../../../Redux/Apis'
 import {useDispatch} from 'react-redux'
@@ -10,10 +10,12 @@ interface FilterProps {
 
 const Filter:React.FC<FilterProps> = ({setIsFilter,productsCount}) => {
   const dispatch = useDispatch()
+
   const handleFilter = (e:React.ChangeEvent<HTMLSelectElement>):void => {
     setIsFilter(true)
     fetchShopProductsData(e.currentTarget.value,dispatch)
   }
+
   return (
     <FilterContainer>
         <FilterCategory>
@@ -26,8 +28,7 @@ const Filter:React.FC<FilterProps> = ({setIsFilter,productsCount}) => {
             </FilterCategorySelect>
         </FilterCategory>
         <FilterSort>
-            <p>Sort by:</p>
-            <p>Products: {productsCount}</p>
+            <p> Products: {productsCount}</p>
         </FilterSort>
     </FilterContainer>
   )

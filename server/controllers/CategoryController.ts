@@ -1,7 +1,7 @@
 import express, { Express, Request, Response } from 'express';
 import prisma from '../prisma/db';
 
-const CategoryController =async (req:Request,res:Response)=>{
+const CategoryController = async (req:Request,res:Response)=>{
     try{
         if (req.params.category) {
             const Products = await prisma.products.findMany({where: {category: req.params.category}})
