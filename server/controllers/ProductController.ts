@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import prisma from '../prisma/db';
 
 const ProductController = async (req:Request,res:Response)=>{

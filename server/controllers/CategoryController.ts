@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import prisma from '../prisma/db';
 
 const CategoryController = async (req:Request,res:Response)=>{
