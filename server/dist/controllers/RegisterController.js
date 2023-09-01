@@ -17,6 +17,7 @@ const bcrypt_1 = __importDefault(require("bcrypt"));
 const RegisterController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const saltRounds = 10;
     const { first_name, last_name, email, password } = req.body;
+    console.log(first_name, last_name, email, password);
     try {
         if (first_name && last_name && email && password) {
             const userUniqueCheck = yield db_1.default.user.findFirst({ where: { email: email } });

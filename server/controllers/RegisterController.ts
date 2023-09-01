@@ -12,6 +12,7 @@ interface RegisterControllerBodyType {
 const RegisterController = async (req:Request,res:Response)=>{
     const saltRounds:number = 10
     const {first_name,last_name,email,password}:RegisterControllerBodyType = req.body
+    console.log(first_name,last_name,email,password)
     try{
        if (first_name && last_name && email && password) {
         const userUniqueCheck = await prisma.user.findFirst({where:{email:email}})

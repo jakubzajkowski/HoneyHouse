@@ -17,3 +17,27 @@ export const productApiAction = <payloadType>(data:payloadType):{type: string, p
       payload: data
     }
  }
+export const formDataRegisterEmailAction = (data:string):{type: string, payload: string} => {
+   return {
+      type: "FORM_DATA_REGISTER_EMAIL_ACTION",
+      payload: data
+    }
+ }
+export const formDataRegisterPasswordAction = (data:string):{type: string, payload: string} => {
+   return {
+      type: "FORM_DATA_REGISTER_PASSWORD_ACTION",
+      payload: data
+    }
+ }
+export const formDataRegisterLastNameAction = (data:string):{type: string, payload: string} => {
+   return {
+      type: "FORM_DATA_REGISTER_LAST_NAME_ACTION",
+      payload: data
+    }
+ }
+export const formDataRegisterFirstNameAction = (data:string):{type: string, payload: string} => {
+   return {
+      type: "FORM_DATA_REGISTER_FIRST_NAME_ACTION",
+      payload: data
+    }
+ }
