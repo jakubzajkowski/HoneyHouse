@@ -20,11 +20,11 @@ const LoginController = (req, res) => __awaiter(void 0, void 0, void 0, function
     try {
         const user = yield db_1.default.user.findFirst({ where: { email: email } });
         if (!user) {
-            throw 'User not found';
+            throw 'User not found!';
         }
         const isMatch = yield bcrypt_1.default.compare(password, user.password);
         if (!isMatch) {
-            throw 'Invalid password';
+            throw 'Invalid password!';
         }
         const token = jsonwebtoken_1.default.sign({ user }, process.env.JWT_SECRET_TOKEN, {
             expiresIn: process.env.JWT_SECRET_TOKEN_EXPIRES,

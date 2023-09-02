@@ -14,13 +14,13 @@ const LoginController = async (req: Request, res: Response) => {
       const user = await prisma.user.findFirst({where:{email: email}})
   
       if (!user) {
-         throw 'User not found' 
+         throw 'User not found!' 
       }
   
       const isMatch = await bcrypt.compare(password, user.password as string);
   
       if (!isMatch) {
-        throw 'Invalid password'
+        throw 'Invalid password!'
       }
   
       const token = jwt.sign({ user }, process.env.JWT_SECRET_TOKEN as string, {

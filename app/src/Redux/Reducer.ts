@@ -23,6 +23,10 @@ const Reducer = (state = initialState, action:ActionType) : InitialStateType => 
       return { ...state, formDataRegister: {...state.formDataRegister, last_name: action.payload as string}}
     case 'FORM_DATA_REGISTER_FIRST_NAME_ACTION':
       return { ...state, formDataRegister: {...state.formDataRegister, first_name: action.payload as string}}
+    case 'FORM_DATA_LOGIN_EMAIL_ACTION':
+      return { ...state, formDataLogin: {...state.formDataLogin, email: action.payload as string}}
+    case 'FORM_DATA_LOGIN_PASSWORD_ACTION':
+      return { ...state, formDataLogin: {...state.formDataLogin, password: action.payload as string}}
     default:
       return state
   }
