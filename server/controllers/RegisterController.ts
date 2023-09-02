@@ -21,7 +21,7 @@ const RegisterController = async (req:Request,res:Response)=>{
             await prisma.user.create({data:{first_name,last_name,email,password:hash}})
             res.status(200).json({success: 'Register success'})
         }
-        else throw "Email is used as a user"
+        else throw "This email is already used!"
        }
        else throw "Fill all fields"
     }

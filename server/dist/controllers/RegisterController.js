@@ -27,7 +27,7 @@ const RegisterController = (req, res) => __awaiter(void 0, void 0, void 0, funct
                 res.status(200).json({ success: 'Register success' });
             }
             else
-                throw "Email is used as a user";
+                throw "This email is already used!";
         }
         else
             throw "Fill all fields";
