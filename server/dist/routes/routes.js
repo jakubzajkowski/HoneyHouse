@@ -8,9 +8,11 @@ const ProductsController_1 = __importDefault(require("../controllers/ProductsCon
 const CategoryController_1 = __importDefault(require("../controllers/CategoryController"));
 const ProductController_1 = __importDefault(require("../controllers/ProductController"));
 const RegisterController_1 = __importDefault(require("../controllers/RegisterController"));
+const LoginController_1 = __importDefault(require("../controllers/LoginController"));
 const api = express_1.default.Router();
 api.get('/products', ProductsController_1.default);
 api.get('/products/:category', CategoryController_1.default);
 api.get('/product/:id', ProductController_1.default);
 api.post('/register', RegisterController_1.default);
+api.post('/login', LoginController_1.default);
 exports.default = api;
