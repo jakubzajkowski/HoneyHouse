@@ -9,10 +9,13 @@ const CategoryController_1 = __importDefault(require("../controllers/CategoryCon
 const ProductController_1 = __importDefault(require("../controllers/ProductController"));
 const RegisterController_1 = __importDefault(require("../controllers/RegisterController"));
 const LoginController_1 = __importDefault(require("../controllers/LoginController"));
+const Auth_1 = require("../middlewares/Auth");
+const UserController_1 = __importDefault(require("../controllers/UserController"));
 const api = express_1.default.Router();
 api.get('/products', ProductsController_1.default);
 api.get('/products/:category', CategoryController_1.default);
 api.get('/product/:id', ProductController_1.default);
 api.post('/register', RegisterController_1.default);
 api.post('/login', LoginController_1.default);
+api.get('/user', Auth_1.Auth, UserController_1.default);
 exports.default = api;

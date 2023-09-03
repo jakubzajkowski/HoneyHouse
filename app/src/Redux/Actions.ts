@@ -53,3 +53,9 @@ export const formDataRegisterFirstNameAction = (data:string):{type: string, payl
       payload: data
     }
  }
+ export const userDataAuthAction = <payloadType>(data:payloadType):{type: string, payload: payloadType} => {
+   return {
+      type: "USER_DATA_AUTH_ACTION",
+      payload: data
+    }
+ }

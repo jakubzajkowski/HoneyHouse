@@ -16,7 +16,7 @@ const Product: React.FC<ProductProps>= ({data}) => {
     <ProductElement onMouseEnter={()=>setHovered(true)} onMouseLeave={()=>setHovered(false)}>
         <Link style={{color:'black',textDecoration:'none'}} to={`/shop/product/${data.id}`}>
         {!isMobileScreen && <ProductElementTitle initial={{opacity: 0}} animate={{opacity: isHovered ? 1 : 0}}>{data.name}</ProductElementTitle>}
-        <ProductElementImg initial={{scale: 1}} animate={{scale: isHovered ? 1.05 : 1}} src={data.img} alt="img" />
+        <ProductElementImg initial={{scale: 1}} animate={{scale: isHovered ? 1.05 : 1}} src={data.img} alt="img" loading='lazy' />
         {isMobileScreen && <ProductElementTitle>{data.name}</ProductElementTitle>}
         <ProductElementPrice initial={{opacity:isMobileScreen ? 1 : 0}} animate={{opacity: isHovered ? 1 : (isMobileScreen ? 1 : 0)}}>{data.price}0 &euro; / EUR</ProductElementPrice>
         </Link>

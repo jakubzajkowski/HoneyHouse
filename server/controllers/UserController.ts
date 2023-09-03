@@ -6,8 +6,7 @@ const UserController = async (req: Request, res: Response) => {
     const token = req.headers.authorization?.replace('Bearer ', '');
     try {
       const decodedToken: any = jwt.verify(token as string, process.env.JWT_SECRET_TOKEN as string);
-      const userId = decodedToken?.user?._id;
-  
+      const userId = decodedToken?.user?.id;
       if (!userId) {
         throw 'Unauthorized'
       }

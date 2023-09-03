@@ -5,6 +5,7 @@ export interface InitialStateType{
     shopProducts: ProductsType[] | null
     formDataRegister: FormDataRegisterType 
     formDataLogin: FormDataLoginType
+    userData: UserDataType | null
 }
 
 export interface FormDataRegisterType {
@@ -17,6 +18,15 @@ export interface FormDataLoginType {
     email: string 
     password: string 
 } 
+
+export interface UserDataType {
+        id: string,
+        first_name: string,
+        last_name: string,
+        email: string,
+        password: string,
+        createdAt: string
+}
 
 export interface ProductsType{
     id: string
@@ -48,5 +58,6 @@ export const initialState: InitialStateType = {
     formDataLogin: {
         email: '',
         password: '' 
-    }
+    },
+    userData: null
 }

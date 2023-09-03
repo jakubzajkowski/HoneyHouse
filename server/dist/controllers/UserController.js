@@ -19,7 +19,7 @@ const UserController = (req, res) => __awaiter(void 0, void 0, void 0, function*
     const token = (_a = req.headers.authorization) === null || _a === void 0 ? void 0 : _a.replace('Bearer ', '');
     try {
         const decodedToken = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET_TOKEN);
-        const userId = (_b = decodedToken === null || decodedToken === void 0 ? void 0 : decodedToken.user) === null || _b === void 0 ? void 0 : _b._id;
+        const userId = (_b = decodedToken === null || decodedToken === void 0 ? void 0 : decodedToken.user) === null || _b === void 0 ? void 0 : _b.id;
         if (!userId) {
             throw 'Unauthorized';
         }

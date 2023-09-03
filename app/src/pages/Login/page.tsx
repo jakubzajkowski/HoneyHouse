@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import Nav from '../../components/Nav/Nav'
 import { Main,LoginHeader,LoginButton,LoginInput,LoginForm } from './styles'
 import { Link } from 'react-router-dom'
@@ -11,9 +11,9 @@ const Login:React.FC = () => {
   const dispatch = useDispatch()
   const [serverError,setServerError]=useState('')
   const loginData = useSelector((state:InitialStateType)=>state.formDataLogin)
+
   const handleSubmit=(e:React.MouseEvent<HTMLButtonElement, MouseEvent>):void=>{
     e.preventDefault()
-    console.log(loginData)
     if (loginData.email!='' && loginData.password!=''){
       LoginHandler(loginData,setServerError)
     }

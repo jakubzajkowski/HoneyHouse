@@ -21,7 +21,7 @@ const Product:React.FC = () => {
             <Nav />
             <ProductContainer>
                 <ProductImgSide>
-                    <ProductImg src={product?.img} alt="img honey" />
+                    <ProductImg src={product?.img} alt="img honey" loading='lazy'/>
                 </ProductImgSide>
                 <ProductInfoSide>
                     <h1 style={{margin:'1rem 0',fontFamily:"'Bebas Neue', sans-serif"}}>{product?.name}</h1>

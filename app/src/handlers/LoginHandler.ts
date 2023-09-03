@@ -10,7 +10,8 @@ export const LoginHandler = (data : LoginHandlerArgs,setServerError:React.Dispat
         email:data.email,
         password: data.password
     }).then(({data})=>{
-        console.log(data)
+        localStorage.setItem('token',data.token)
+        location.href='/account'
     }).catch((err)=>{
         setServerError(err.response.data.error)
     })

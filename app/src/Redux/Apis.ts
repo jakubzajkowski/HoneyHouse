@@ -1,7 +1,7 @@
 import axios from "axios";
-import { productsApiAction,shopProductsApiAction,productApiAction } from "./Actions";
+import { productsApiAction,shopProductsApiAction,productApiAction,userDataAuthAction } from "./Actions";
 import { AnyAction,Dispatch } from "redux";
-import { ProductsType } from "./state";
+import { ProductsType,UserDataType } from "./state";
 
 export const fetchProductsData=(dispatch:Dispatch<AnyAction>):any=>{
     return axios.get(`${import.meta.env.VITE_HOST_URI}/api/products`)
@@ -19,5 +19,11 @@ export const fetchProductData=(id:string,dispatch:Dispatch<AnyAction>):any=>{
   return axios.get(`${import.meta.env.VITE_HOST_URI}/api/product/${id}`)
     .then(({ data }) => {
     dispatch(productApiAction<ProductsType>(data));
+  });
+}
+export const fetchUserAuth=(token:string,dispatch:Dispatch<AnyAction>):any=>{
+  return axios.get(`${import.meta.env.VITE_HOST_URI}/api/user`,{headers: { Authorization: `Bearer ${token}` }})
+    .then(({ data }) => {
+    dispatch(userDataAuthAction<UserDataType>(data));
   });
 }
