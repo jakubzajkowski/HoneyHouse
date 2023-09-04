@@ -12,9 +12,10 @@ const Account:React.FC = () => {
     fetchUserAuth(token as string,dispatch)
   },[])
 
-  return (
+  if (data) return (
     <div>{data?.email}</div>
   )
+  else return <div>Not Authorized</div>
 }
 
 export default Account
