@@ -32,6 +32,12 @@ model User {
   password String
   cart Cart[]
   createdAt DateTime @default(now())
+  country String
+  address String
+  apartament String
+  postal_code String
+  city String
+  phone String
 }
 model Cart {
     id String @id @default(uuid()) @unique
