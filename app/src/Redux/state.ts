@@ -26,6 +26,12 @@ export interface UserDataType {
         email: string,
         password: string,
         createdAt: string
+        country: string
+        address: string
+        apartament: string
+        postal_code: string
+        city: string
+        phone: string
 }
 
 export interface ProductsType{
