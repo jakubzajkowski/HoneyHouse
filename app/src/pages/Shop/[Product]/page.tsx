@@ -18,7 +18,7 @@ const Product:React.FC = () => {
         fetchProductData(id as string,dispatch)
       },[])
 
-    const handleAddCart= (userId:string | undefined,category:string,productId:string,price:number):void=>{
+    const handleAddCart= (userId:string ,category:string,productId:string,price:number):void=>{
         const data:AddCartHandlerArgs = { userId: userId,product_category:category, product_id: productId ,price: price }
         console.log(data)
         AddCartHandler(data)
@@ -37,7 +37,7 @@ const Product:React.FC = () => {
                     <ProductDesc>{product?.desc}</ProductDesc>
                     <p style={{margin:'2rem 0',fontWeight:'bold'}}>{product?.price}0  &euro; / EUR</p>
                     <p style={{margin:'2rem 0'}}>Weight: {(product?.weight as number/1000)} kg</p>
-                    <ProductButton onClick={()=>handleAddCart(data?.id,product.category,product.id,product.price)}>add to cart</ProductButton>
+                    <ProductButton onClick={()=>data ? handleAddCart(data.id,product.category,product.id,product.price) : location.href='/login'}>add to cart</ProductButton>
                     <ul>
                         <li style={{margin: '1rem',fontSize:'0.9rem'}}>{product?.category}</li>
                         <li style={{margin: '1rem',fontSize:'0.9rem'}}>{product?.taste}</li>

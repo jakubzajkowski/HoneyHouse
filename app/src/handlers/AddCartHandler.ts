@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export interface AddCartHandlerArgs {
-    userId: string | undefined
+    userId: string 
     product_category: string
     product_id: string
     price: number
