@@ -18,7 +18,18 @@ const RegisterController = async (req:Request,res:Response)=>{
         const userUniqueCheck = await prisma.user.findFirst({where:{email:email}})
         if (!userUniqueCheck){
             const hash = bcrypt.hashSync(password, saltRounds);
-            await prisma.user.create({data:{first_name,last_name,email,password:hash}})
+            await prisma.user.create({data:{
+                first_name,
+                last_name,
+                email,
+                password:hash,
+                country:"",
+                address:"",
+                apartament:"",
+                postal_code:"",
+                city:"",
+                phone:""}
+            })
             res.status(200).json({success: 'Register success'})
         }
         else throw "This email is already used!"

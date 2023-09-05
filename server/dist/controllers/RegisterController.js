@@ -23,7 +23,19 @@ const RegisterController = (req, res) => __awaiter(void 0, void 0, void 0, funct
             const userUniqueCheck = yield db_1.default.user.findFirst({ where: { email: email } });
             if (!userUniqueCheck) {
                 const hash = bcrypt_1.default.hashSync(password, saltRounds);
-                yield db_1.default.user.create({ data: { first_name, last_name, email, password: hash } });
+                yield db_1.default.user.create({ data: {
+                        first_name,
+                        last_name,
+                        email,
+                        password: hash,
+                        country: "",
+                        address: "",
+                        apartament: "",
+                        postal_code: "",
+                        city: "",
+                        phone: ""
+                    }
+                });
                 res.status(200).json({ success: 'Register success' });
             }
             else

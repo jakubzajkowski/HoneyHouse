@@ -6,6 +6,7 @@ import RegisterController from '../controllers/RegisterController';
 import LoginController from '../controllers/LoginController';
 import { Auth } from '../middlewares/Auth';
 import UserController from '../controllers/UserController';
+import AddCartController from '../controllers/AddCartController';
 
 const api:Router = express.Router();
 
@@ -14,6 +15,7 @@ api.get('/products/:category', CategoryController)
 api.get('/product/:id', ProductController)
 api.post('/register', RegisterController)
 api.post('/login', LoginController)
+api.post('/add-cart', AddCartController)
 api.get('/user', Auth, UserController)
 
 export default api

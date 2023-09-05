@@ -2,6 +2,7 @@ import React from 'react'
 import { Main,AccountInfoBar,AccountSendInfo,AccountContainer,FormInfo,InfoButton,InfoInput,InputContainer,InfoDoubleInput } from './styles'
 import Nav from '../../components/Nav/Nav'
 import useAuth from '../../hooks/useAuth'
+import { Navigate } from 'react-router-dom'
 
 const Account:React.FC = () => {
   const {data,isLoading}=useAuth()
@@ -41,7 +42,7 @@ const Account:React.FC = () => {
       </AccountContainer>
     </Main>
   )
-  else return <div>Not Authorized</div>
+  else return <Navigate to="/login" replace />
 }
 
 export default Account

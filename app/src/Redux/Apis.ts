@@ -26,5 +26,5 @@ export const fetchUserAuth=(token:string,dispatch:Dispatch<AnyAction>,setIsLoadi
     .then(({ data }) => {
     dispatch(userDataAuthAction<UserDataType>(data));
     setIsLoading(false)
-  });
+  }).catch(()=>setIsLoading(false))
 }
