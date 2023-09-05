@@ -1,18 +1,12 @@
-import React, {useEffect} from 'react'
-import { useSelector,useDispatch } from 'react-redux'
-import { fetchUserAuth } from '../../Redux/Apis'
-import { InitialStateType } from '../../Redux/state'
+import React from 'react'
 import { Main,AccountInfoBar,AccountSendInfo,AccountContainer,FormInfo,InfoButton,InfoInput,InputContainer,InfoDoubleInput } from './styles'
 import Nav from '../../components/Nav/Nav'
+import useAuth from '../../hooks/useAuth'
 
 const Account:React.FC = () => {
-  const token = localStorage.getItem('token')
-  const dispatch = useDispatch()
-  const data = useSelector((state:InitialStateType)=>state.userData)
+  const {data,isLoading}=useAuth()
 
-  useEffect(()=>{
-    fetchUserAuth(token as string,dispatch)
-  },[])
+  if (isLoading && !data) return <div>Loading...</div>
 
   if (data) return (
     <Main>
@@ -22,6 +16,8 @@ const Account:React.FC = () => {
           <h1>{data.first_name} {data.last_name}</h1>
           <p style={{margin: '1rem 0'}}>{data.email}</p>
           <p style={{margin: '1rem 0'}}>created at: {data.createdAt.slice(0,10)}</p>
+          <h1 style={{margin: '1rem 0'}}>Your Products: </h1>
+          <p style={{color:'grey',margin: '1rem 0'}}>No products!</p>
         </AccountInfoBar>
         <AccountSendInfo>
           <h3>Contact: </h3>

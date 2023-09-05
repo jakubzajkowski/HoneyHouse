@@ -21,9 +21,10 @@ export const fetchProductData=(id:string,dispatch:Dispatch<AnyAction>):any=>{
     dispatch(productApiAction<ProductsType>(data));
   });
 }
-export const fetchUserAuth=(token:string,dispatch:Dispatch<AnyAction>):any=>{
+export const fetchUserAuth=(token:string,dispatch:Dispatch<AnyAction>,setIsLoading:React.Dispatch<React.SetStateAction<boolean>>):any=>{
   return axios.get(`${import.meta.env.VITE_HOST_URI}/api/user`,{headers: { Authorization: `Bearer ${token}` }})
     .then(({ data }) => {
     dispatch(userDataAuthAction<UserDataType>(data));
+    setIsLoading(false)
   });
 }
