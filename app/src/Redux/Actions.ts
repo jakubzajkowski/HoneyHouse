@@ -59,3 +59,9 @@ export const formDataRegisterFirstNameAction = (data:string):{type: string, payl
       payload: data
     }
  }
+ export const cartDataAction = <payloadType>(data:payloadType):{type: string, payload: payloadType} => {
+   return {
+      type: "CART_DATA_ACTION",
+      payload: data
+    }
+ }

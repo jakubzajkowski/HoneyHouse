@@ -1,7 +1,8 @@
 import axios from "axios";
 import { productsApiAction,shopProductsApiAction,productApiAction,userDataAuthAction } from "./Actions";
 import { AnyAction,Dispatch } from "redux";
-import { ProductsType,UserDataType } from "./state";
+import { ProductsType,UserDataType,CartDataType } from "./state";
+import { cartDataAction } from "./Actions";
 
 export const fetchProductsData=(dispatch:Dispatch<AnyAction>):any=>{
     return axios.get(`${import.meta.env.VITE_HOST_URI}/api/products`)
@@ -25,6 +26,13 @@ export const fetchUserAuth=(token:string,dispatch:Dispatch<AnyAction>,setIsLoadi
   return axios.get(`${import.meta.env.VITE_HOST_URI}/api/user`,{headers: { Authorization: `Bearer ${token}` }})
     .then(({ data }) => {
     dispatch(userDataAuthAction<UserDataType>(data));
+    setIsLoading(false)
+  }).catch(()=>setIsLoading(false))
+}
+export const fetchCart=(id:string,dispatch:Dispatch<AnyAction>,setIsLoading:React.Dispatch<React.SetStateAction<boolean>>):any=>{
+  return axios.get(`${import.meta.env.VITE_HOST_URI}/api/cart/${id}`)
+    .then(({ data }) => {
+    dispatch(cartDataAction<CartDataType>(data));
     setIsLoading(false)
   }).catch(()=>setIsLoading(false))
 }

@@ -1,10 +1,10 @@
 import { createStore,applyMiddleware } from 'redux'
 import thunk from "redux-thunk";
-import { initialState,ProductsType,InitialStateType,UserDataType } from './state';
+import { initialState,ProductsType,InitialStateType,UserDataType,CartDataType } from './state';
 
 interface ActionType {
   type: string,
-  payload: ProductsType[] | ProductsType  | string | UserDataType
+  payload: ProductsType[] | ProductsType  | string | UserDataType | CartDataType
 }
 
 const Reducer = (state = initialState, action:ActionType) : InitialStateType => {
@@ -29,6 +29,8 @@ const Reducer = (state = initialState, action:ActionType) : InitialStateType => 
       return { ...state, formDataLogin: {...state.formDataLogin, password: action.payload as string}}
     case 'USER_DATA_AUTH_ACTION':
       return { ...state, userData: action.payload as UserDataType}
+    case 'CART_DATA_ACTION':
+      return { ...state, cartData: action.payload as CartDataType}
     default:
       return state
   }

@@ -6,6 +6,7 @@ export interface InitialStateType{
     formDataRegister: FormDataRegisterType 
     formDataLogin: FormDataLoginType
     userData: UserDataType | null
+    cartData: CartDataType | null
 }
 
 export interface FormDataRegisterType {
@@ -14,6 +15,13 @@ export interface FormDataRegisterType {
     email: string 
     password: string 
 } 
+export interface CartDataType { 
+    id: string 
+    userId: string
+    product_category: string
+    product_id: string
+    price: number
+}
 export interface FormDataLoginType {
     email: string 
     password: string 
@@ -65,5 +73,6 @@ export const initialState: InitialStateType = {
         email: '',
         password: '' 
     },
-    userData: null
+    userData: null,
+    cartData: null
 }
