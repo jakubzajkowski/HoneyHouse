@@ -105,3 +105,35 @@ export const FooterOptionStyle = {
     cursor: 'pointer',
     fontFamily: "'Gloria Hallelujah', cursive"
 }
+
+export const BagContainer = styled(motion.div)`
+    width: 20%;
+    position: fixed;
+    top:0;
+    bottom:0;
+    background-color: orange;
+    right:0;
+    padding: 1rem;
+    @media(max-width: 950px){
+        width: 90%;
+    }
+`
+export const BagClose = styled.p`
+    top:0;
+    position: absolute;
+    margin: 1.5rem;
+    right:0;
+    font-size: 1.1rem;
+    font-weight:bold;
+    cursor: pointer;
+`
+export const BagBackground = styled.div`
+    width: 100%;
+    position: fixed;
+    top:0;
+    z-index: 1000;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color: rgba(0,0,0,0.75);
+`

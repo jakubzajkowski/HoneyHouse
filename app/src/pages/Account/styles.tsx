@@ -10,16 +10,28 @@ export const AccountContainer= styled.div`
     width:75%;
     padding:1rem;
     display:flex;
+    flex-wrap:wrap;
     gap:1rem;
     justify-content:space-between;
+    @media(max-width: 950px){
+        padding:0.2rem;
+    }
 `
 export const AccountInfoBar= styled.div`
-    width:50%;
+    width:45%;
     padding:1rem;
+    @media(max-width: 950px){
+        width:100%;
+        padding:0.2rem;
+    }
 `
 export const AccountSendInfo= styled.div`
-    width:50%;
+    width:45%;
     padding:1rem;
+    @media(max-width: 950px){
+        width:100%;
+        padding:0.2rem;
+    }
 `
 export const FormInfo = styled.form`
     margin: auto;

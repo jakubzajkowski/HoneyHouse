@@ -1,16 +1,18 @@
 import React,{useState,useEffect} from 'react'
-import { NavBar,NavBarOption,LinkStyle,NavBarGroup,Logo,NavBarMobileGroup,BarsStyle,BagStyle,BagSpan } from '../styles'
+import { NavBar,NavBarOption,NavBarGroup,Logo,NavBarMobileGroup,BarsStyle,BagStyle,BagSpan } from '../styles'
 import {Link} from 'react-router-dom'
 import MobileMenu from './MobileMenu'
 import { AnimatePresence } from 'framer-motion'
 import { InitialStateType } from '../../Redux/state'
 import { useSelector } from 'react-redux'
+import Bag from '../Bag/Bag'
 
 
 const Nav:React.FC = () => {
   const [visible, setVisible] = useState(true)
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isMobileMenu,setIsMobileMenu]=useState<boolean>(false)
+  const [isBag,setIsBag]=useState<boolean>(false)
   const theme = useSelector((state:InitialStateType)=>state.theme)
 
   const handleScroll = () => {
@@ -28,7 +30,7 @@ const Nav:React.FC = () => {
   useEffect(()=>{
     window.addEventListener('scroll', handleScroll);
 
-    if(isMobileMenu){
+    if(isMobileMenu || isBag){
       document.body.style.overflow = 'hidden';
     }
     else{
@@ -42,6 +44,9 @@ const Nav:React.FC = () => {
       <AnimatePresence>
       {isMobileMenu && <MobileMenu setIsMobileMenu={setIsMobileMenu}/>}
       </AnimatePresence>
+      <AnimatePresence>
+        {isBag && <Bag setIsBag={setIsBag}/>}
+      </AnimatePresence>
       <NavBar theme={theme} initial={{y:'0%'}} animate={{y: !visible ? '-100%' : '0%'}} transition={{ease:'easeInOut',duration:'0.5'}}>
           <NavBarGroup>
               <NavBarOption><Link style={{color: theme ? "#e6ad00" : 'black',textDecoration: 'none',}} to='/shop'>shop</Link></NavBarOption>
@@ -52,13 +57,13 @@ const Nav:React.FC = () => {
           </NavBarMobileGroup>
           <Link to='/' style={{textDecoration:'none',color:'black'}}><Logo>Honey House</Logo></Link>
           <NavBarMobileGroup>
-                <p style={BagStyle}>bag <BagSpan>0</BagSpan></p>
+                <p style={BagStyle} onClick={()=>setIsBag(true)}>bag <BagSpan>0</BagSpan></p>
           </NavBarMobileGroup>
           <NavBarGroup>
               <NavBarOption><Link style={{color: theme ? "#e6ad00" : 'black',textDecoration: 'none',}} to='/shop' >Europe (EUR)</Link></NavBarOption>
               <NavBarOption>search</NavBarOption>
               <NavBarOption><Link style={{color: theme ? "#e6ad00" : 'black',textDecoration: 'none',}} to='/login'>log in</Link></NavBarOption>
-              <NavBarOption>bag</NavBarOption>
+              <NavBarOption onClick={()=>setIsBag(true)}>bag</NavBarOption>
           </NavBarGroup>
       </NavBar>
     </>
