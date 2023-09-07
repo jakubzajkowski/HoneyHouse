@@ -8,6 +8,7 @@ import { Auth } from '../middlewares/Auth';
 import UserController from '../controllers/UserController';
 import AddCartController from '../controllers/AddCartController';
 import CartController from '../controllers/CartController';
+import DeleteCartController from '../controllers/DeleteCartController';
 
 const api:Router = express.Router();
 
@@ -19,5 +20,6 @@ api.post('/login', LoginController)
 api.post('/add-cart', AddCartController)
 api.get('/user', Auth, UserController)
 api.get('/cart/:id', CartController)
+api.delete('/delete-cart', DeleteCartController)
 
 export default api

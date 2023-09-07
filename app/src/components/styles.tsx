@@ -145,12 +145,12 @@ export const BagHeader = styled.h3`
 export const CartProductContainer = styled.div`
     width:100%;
     display:flex;
-    margin: 1rem 0;
-    justify-content: space-between;
 `
 export const ProductImg = styled.div`
-    width:48%;
+    width:100%;
+    display:flex;
 `
 export const ProductInfo = styled.div`
-    width:48%;
+    width:100%;
+    display:flex;
 `
