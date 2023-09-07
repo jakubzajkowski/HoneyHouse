@@ -137,3 +137,20 @@ export const BagBackground = styled.div`
     right:0;
     background-color: rgba(0,0,0,0.75);
 `
+export const BagHeader = styled.h3`
+    font-size: 1.5rem;
+    margin: 3rem 0;
+    font-family: 'Sedgwick Ave Display', cursive;
+`
+export const CartProductContainer = styled.div`
+    width:100%;
+    display:flex;
+`
+export const ProductImg = styled.div`
+    width:100%;
+    display:flex;
+`
+export const ProductInfo = styled.div`
+    width:100%;
+    display:flex;
+`

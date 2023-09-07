@@ -6,7 +6,7 @@ export interface InitialStateType{
     formDataRegister: FormDataRegisterType 
     formDataLogin: FormDataLoginType
     userData: UserDataType | null
-    cartData: CartDataType | null
+    cartData: CartDataType[] | null
 }
 
 export interface FormDataRegisterType {

@@ -29,10 +29,10 @@ export const fetchUserAuth=(token:string,dispatch:Dispatch<AnyAction>,setIsLoadi
     setIsLoading(false)
   }).catch(()=>setIsLoading(false))
 }
-export const fetchCart=(id:string,dispatch:Dispatch<AnyAction>,setIsLoading:React.Dispatch<React.SetStateAction<boolean>>):any=>{
+export const fetchCart=(id:string | undefined,dispatch:Dispatch<AnyAction>,setIsLoading:React.Dispatch<React.SetStateAction<boolean>>):any=>{
   return axios.get(`${import.meta.env.VITE_HOST_URI}/api/cart/${id}`)
     .then(({ data }) => {
-    dispatch(cartDataAction<CartDataType>(data));
+    dispatch(cartDataAction<CartDataType[]>(data));
     setIsLoading(false)
   }).catch(()=>setIsLoading(false))
 }
