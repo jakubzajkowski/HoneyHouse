@@ -21,6 +21,10 @@ export interface CartDataType {
     product_category: string
     product_id: string
     price: number
+    img: string
+    name: string
+    desc: string
+    weight: number
 }
 export interface FormDataLoginType {
     email: string 

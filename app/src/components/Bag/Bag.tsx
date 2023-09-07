@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { BagContainer,BagClose,BagBackground,BagHeader } from '../styles'
+import { BagContainer,BagClose,BagBackground,BagHeader,BagProducts } from '../styles'
 import { useSelector,useDispatch } from 'react-redux'
 import { fetchCart } from '../../Redux/Apis'
 import { InitialStateType } from '../../Redux/state'
 import useAuth from '../../hooks/useAuth'
 import CartProduct from './components/CartProduct'
+import { CircularProgress } from '@mui/material';
 
 interface BagProps {
     setIsBag: React.Dispatch<React.SetStateAction<boolean>>
@@ -24,7 +25,10 @@ const Bag:React.FC<BagProps> = ({setIsBag}) => {
         <BagContainer onClick={e => e.stopPropagation()} initial={{ x: '100%' }} animate={{ x: '0%' }} exit={{ x: '100%' }} transition={{duration: 0.3,ease:'easeInOut'}}>
             <BagClose onClick={()=>setIsBag(false)}>Close</BagClose>
             <BagHeader>Your Cart</BagHeader>
-            <p>{cart?.map(x=><p>{x.id}</p>)}</p>
+            <BagProducts>
+              {isLoading ? <CircularProgress/> : cart?.map(product=><CartProduct title={product.name} price={product.price} img={product.img}/>)}
+            </BagProducts>
+            <h1>xd</h1>
         </BagContainer>
     </BagBackground>
   )

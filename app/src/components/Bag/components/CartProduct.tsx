@@ -4,7 +4,7 @@ import { CartProductContainer,ProductInfo,ProductImg } from '../../styles'
 interface CartProductProps {
     img : string
     title : string
-    price: string
+    price: number
 }
 
 const CartProduct: React.FC<CartProductProps> = ({img,title,price}) => {

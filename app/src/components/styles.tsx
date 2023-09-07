@@ -142,15 +142,19 @@ export const BagHeader = styled.h3`
     margin: 3rem 0;
     font-family: 'Sedgwick Ave Display', cursive;
 `
+export const BagProducts = styled.div`
+    max-height: 500px;
+    overflow-y: auto;
+`
 export const CartProductContainer = styled.div`
     width:100%;
     display:flex;
+    margin: 1rem 0;
+    justify-content: space-between;
 `
 export const ProductImg = styled.div`
-    width:100%;
-    display:flex;
+    width:48%;
 `
 export const ProductInfo = styled.div`
-    width:100%;
-    display:flex;
+    width:48%;
 `
