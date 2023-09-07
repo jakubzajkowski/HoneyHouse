@@ -17,8 +17,12 @@ const CartController = (req, res) => __awaiter(void 0, void 0, void 0, function*
     try {
         if (req.params.id) {
             const Cart = yield db_1.default.cart.findMany({ where: { userId: req.params.id } });
+            const CartResponse = yield Promise.all(Cart.map((item) => __awaiter(void 0, void 0, void 0, function* () {
+                const product = yield db_1.default.products.findFirst({ where: { id: item.product_id } });
+                return Object.assign(Object.assign({}, item), { img: product === null || product === void 0 ? void 0 : product.img, name: product === null || product === void 0 ? void 0 : product.name, desc: product === null || product === void 0 ? void 0 : product.desc, weight: product === null || product === void 0 ? void 0 : product.weight });
+            })));
             if (Cart) {
-                return res.status(200).json(Cart);
+                return res.status(200).json(CartResponse);
             }
             else {
                 throw "Cart not found";
