@@ -20,6 +20,6 @@ api.post('/login', LoginController)
 api.post('/add-cart', AddCartController)
 api.get('/user', Auth, UserController)
 api.get('/cart/:id', CartController)
-api.delete('/delete-cart', DeleteCartController)
+api.post('/delete-cart', DeleteCartController)
 
 export default api

@@ -4,7 +4,7 @@ import { initialState,ProductsType,InitialStateType,UserDataType,CartDataType } 
 
 interface ActionType {
   type: string,
-  payload: ProductsType[] | ProductsType  | string | UserDataType | CartDataType
+  payload: ProductsType[] | ProductsType  | string | UserDataType | CartDataType[] | number
 }
 
 const Reducer = (state = initialState, action:ActionType) : InitialStateType => {
@@ -30,7 +30,9 @@ const Reducer = (state = initialState, action:ActionType) : InitialStateType => 
     case 'USER_DATA_AUTH_ACTION':
       return { ...state, userData: action.payload as UserDataType}
     case 'CART_DATA_ACTION':
-      return { ...state, cartData: action.payload as CartDataType}
+      return { ...state, cartData: action.payload as CartDataType[]}
+      case 'CART_SUBTOTAL_ACTION':
+      return { ...state, subtotalPrice: action.payload as number}
     default:
       return state
   }

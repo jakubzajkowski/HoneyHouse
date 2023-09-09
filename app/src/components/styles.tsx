@@ -114,6 +114,9 @@ export const BagContainer = styled(motion.div)`
     background-color: orange;
     right:0;
     padding: 1rem;
+    @media(min-width: 950px) and (max-width: 1300px){
+        width: 35%;
+    }
     @media(max-width: 950px){
         width: 90%;
     }
@@ -145,6 +148,9 @@ export const BagHeader = styled.h3`
 export const BagProducts = styled.div`
     max-height: 500px;
     overflow-y: auto;
+    @media(max-width: 950px){
+        max-height: 350px;
+    }
 `
 export const CartProductContainer = styled.div`
     width:100%;
@@ -157,4 +163,28 @@ export const ProductImg = styled.div`
 `
 export const ProductInfo = styled.div`
     width:48%;
+`
+export const BagButtonCheckout = styled.button`
+    border: none;
+    width:49%;
+    background-color: black;
+    color: white;
+    font-size:1rem;
+    padding:2rem 0;
+    font-weight: bold;
+`
+export const BagCheckout = styled.div`
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+`
+export const BagPriceCheckout = styled.div`
+    border: 2px solid black;
+    display:flex;
+    justify-content: space-between;
+    font-size:1rem;
+    font-weight: bold;
+    padding:2rem 0.2rem;
+    width:49%;
+    color: black;
 `

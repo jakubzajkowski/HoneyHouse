@@ -7,6 +7,7 @@ export interface InitialStateType{
     formDataLogin: FormDataLoginType
     userData: UserDataType | null
     cartData: CartDataType[] | null
+    subtotalPrice: number
 }
 
 export interface FormDataRegisterType {
@@ -78,5 +79,6 @@ export const initialState: InitialStateType = {
         password: '' 
     },
     userData: null,
-    cartData: null
+    cartData: null,
+    subtotalPrice: 0
 }

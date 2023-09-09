@@ -65,3 +65,9 @@ export const formDataRegisterFirstNameAction = (data:string):{type: string, payl
       payload: data
     }
  }
+ export const cartSubtotalAction = <payloadType>(data:payloadType):{type: string, payload: payloadType} => {
+   return {
+      type: "CART_SUBTOTAL_ACTION",
+      payload: data
+    }
+ }

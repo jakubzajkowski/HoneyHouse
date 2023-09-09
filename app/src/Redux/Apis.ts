@@ -1,5 +1,5 @@
 import axios from "axios";
-import { productsApiAction,shopProductsApiAction,productApiAction,userDataAuthAction } from "./Actions";
+import { productsApiAction,shopProductsApiAction,productApiAction,userDataAuthAction,cartSubtotalAction } from "./Actions";
 import { AnyAction,Dispatch } from "redux";
 import { ProductsType,UserDataType,CartDataType } from "./state";
 import { cartDataAction } from "./Actions";
@@ -29,10 +29,17 @@ export const fetchUserAuth=(token:string,dispatch:Dispatch<AnyAction>,setIsLoadi
     setIsLoading(false)
   }).catch(()=>setIsLoading(false))
 }
-export const fetchCart=(id:string | undefined,dispatch:Dispatch<AnyAction>,setIsLoading:React.Dispatch<React.SetStateAction<boolean>>):any=>{
+export const fetchCart=(id:string | undefined,dispatch:Dispatch<AnyAction>):any=>{
   return axios.get(`${import.meta.env.VITE_HOST_URI}/api/cart/${id}`)
     .then(({ data }) => {
     dispatch(cartDataAction<CartDataType[]>(data));
-    setIsLoading(false)
-  }).catch(()=>setIsLoading(false))
+  }).catch()
+}
+export const fetchCartSubtotal=(id:string | undefined,dispatch:Dispatch<AnyAction>):any=>{
+  return axios.get(`${import.meta.env.VITE_HOST_URI}/api/cart/${id}`)
+    .then(({ data }) => {
+      let subtotalPrice:number=0
+      data.forEach((x:any)=>subtotalPrice+=x.price)
+    dispatch(cartSubtotalAction<number>(subtotalPrice));
+  }).catch()
 }
