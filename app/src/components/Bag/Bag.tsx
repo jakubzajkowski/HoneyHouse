@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { BagContainer,BagClose,BagBackground,BagHeader,BagProducts,BagButtonCheckout,BagCheckout,BagPriceCheckout } from '../styles'
 import useAuth from '../../hooks/useAuth'
 import CartProduct from './components/CartProduct'
 import { CircularProgress } from '@mui/material';
 import useCart from '../../hooks/useCart'
-import useSubtotal from '../../hooks/useSubtotal';
 
 interface BagProps {
     setIsBag: React.Dispatch<React.SetStateAction<boolean>>
@@ -12,8 +11,7 @@ interface BagProps {
 
 const Bag:React.FC<BagProps> = ({setIsBag}) => {
   const {data} = useAuth()
-  const {cart}=useCart(data?.id as string)
-  const subtotalPrice = useSubtotal(data?.id as string)
+  const {cart,subtotal}=useCart(data?.id as string)
 
 
   return (<BagBackground onClick={()=>setIsBag(false)}>
@@ -27,7 +25,7 @@ const Bag:React.FC<BagProps> = ({setIsBag}) => {
             <BagCheckout>
               <BagPriceCheckout>
                 <h4>subtotal: </h4>
-                <p>{subtotalPrice}0 &euro;</p>
+                <p>{Math.round(subtotal * 10) / 10}0 &euro;</p>
               </BagPriceCheckout>
               <BagButtonCheckout>checkout</BagButtonCheckout>
             </BagCheckout>

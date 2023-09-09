@@ -6,6 +6,8 @@ import { AnimatePresence } from 'framer-motion'
 import { InitialStateType } from '../../Redux/state'
 import { useSelector } from 'react-redux'
 import Bag from '../Bag/Bag'
+import useAuth from '../../hooks/useAuth'
+import useCart from '../../hooks/useCart'
 
 
 const Nav:React.FC = () => {
@@ -14,6 +16,8 @@ const Nav:React.FC = () => {
   const [isMobileMenu,setIsMobileMenu]=useState<boolean>(false)
   const [isBag,setIsBag]=useState<boolean>(false)
   const theme = useSelector((state:InitialStateType)=>state.theme)
+  const {data} = useAuth()
+  const {cart}=useCart(data?.id as string)
 
   const handleScroll = () => {
     const currentScrollPos = window.scrollY
@@ -57,13 +61,13 @@ const Nav:React.FC = () => {
           </NavBarMobileGroup>
           <Link to='/' style={{textDecoration:'none',color:'black'}}><Logo>Honey House</Logo></Link>
           <NavBarMobileGroup>
-                <p style={BagStyle} onClick={()=>setIsBag(true)}>bag <BagSpan>0</BagSpan></p>
+                <p style={BagStyle} onClick={()=>setIsBag(true)}>bag <BagSpan>{cart?.length}</BagSpan></p>
           </NavBarMobileGroup>
           <NavBarGroup>
               <NavBarOption><Link style={{color: theme ? "#e6ad00" : 'black',textDecoration: 'none',}} to='/shop' >Europe (EUR)</Link></NavBarOption>
               <NavBarOption>search</NavBarOption>
               <NavBarOption><Link style={{color: theme ? "#e6ad00" : 'black',textDecoration: 'none',}} to='/login'>log in</Link></NavBarOption>
-              <NavBarOption onClick={()=>setIsBag(true)}>bag</NavBarOption>
+              <NavBarOption onClick={()=>setIsBag(true)}>bag <BagSpan>{cart ? cart?.length : 0}</BagSpan></NavBarOption>
           </NavBarGroup>
       </NavBar>
     </>
