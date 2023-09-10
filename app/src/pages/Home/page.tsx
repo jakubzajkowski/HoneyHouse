@@ -18,7 +18,7 @@ const Home:React.FC = () => {
 
   return (<Main>
       <Nav />
-        <Header>Welcome to Honey House</Header>
+        <Header>Welcome to Honey Valley</Header>
         <ProductContainer>
           {products?.map(product=><Product data={product} key={product.id}/>)}
         </ProductContainer>

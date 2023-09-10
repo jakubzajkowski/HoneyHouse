@@ -172,6 +172,7 @@ export const BagButtonCheckout = styled.button`
     font-size:1rem;
     padding:2rem 0;
     font-weight: bold;
+    cursor:pointer;
 `
 export const BagCheckout = styled.div`
     width:100%;
@@ -184,7 +185,7 @@ export const BagPriceCheckout = styled.div`
     justify-content: space-between;
     font-size:1rem;
     font-weight: bold;
-    padding:2rem 0.2rem;
+    padding:2rem 0.3rem;
     width:49%;
     color: black;
 `

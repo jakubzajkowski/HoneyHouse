@@ -13,7 +13,7 @@ const useCart = (id:string) => {
       const intervalId = setInterval(() => {
         fetchCart(id,dispatch)
         fetchCartSubtotal(id,dispatch)
-      },500)
+      },1000)
         return () => clearInterval(intervalId);
     },[])
   return {cart,subtotal}

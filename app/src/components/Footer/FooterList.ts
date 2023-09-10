@@ -6,6 +6,6 @@ interface FooterListType {
 
 export const FooterList:FooterListType = {
     column_0 : ['help','shop','about us','our honey'],
-    column_1 : ['contact','801 312 331','honeyhouse@gmail.com','© 2023, honey house'],
+    column_1 : ['contact','801 312 331','honeyvalley@gmail.com','© 2023, honey valley'],
     column_2 : ['social','facebook','instagram','twitter']
 }
