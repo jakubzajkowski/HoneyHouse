@@ -29,14 +29,14 @@ export const fetchUserAuth=(token:string,dispatch:Dispatch<AnyAction>,setIsLoadi
     setIsLoading(false)
   }).catch(()=>setIsLoading(false))
 }
-export const fetchCart=(id:string | undefined,dispatch:Dispatch<AnyAction>):any=>{
-  return axios.get(`${import.meta.env.VITE_HOST_URI}/api/cart/${id}`)
+export const fetchCart=(token:string | undefined,dispatch:Dispatch<AnyAction>):any=>{
+  return axios.get(`${import.meta.env.VITE_HOST_URI}/api/cart/`,{headers: { Authorization: `Bearer ${token}` }})
     .then(({ data }) => {
     dispatch(cartDataAction<CartDataType[]>(data));
   }).catch()
 }
-export const fetchCartSubtotal=(id:string | undefined,dispatch:Dispatch<AnyAction>):any=>{
-  return axios.get(`${import.meta.env.VITE_HOST_URI}/api/cart/${id}`)
+export const fetchCartSubtotal=(token:string | undefined,dispatch:Dispatch<AnyAction>):any=>{
+  return axios.get(`${import.meta.env.VITE_HOST_URI}/api/cart/`,{headers: { Authorization: `Bearer ${token}` }})
     .then(({ data }) => {
       let subtotalPrice:number=0
       data.forEach((x:any)=>subtotalPrice+=x.price)

@@ -4,14 +4,15 @@ import useAuth from '../../hooks/useAuth'
 import CartProduct from './components/CartProduct'
 import { CircularProgress } from '@mui/material';
 import useCart from '../../hooks/useCart'
+import { Link } from 'react-router-dom';
 
 interface BagProps {
     setIsBag: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const Bag:React.FC<BagProps> = ({setIsBag}) => {
-  const {data} = useAuth()
-  const {cart,subtotal}=useCart(data?.id as string)
+  const {data,isLoading} = useAuth()
+  const {cart,subtotal}=useCart()
 
 
   return (<BagBackground onClick={()=>setIsBag(false)}>
@@ -19,7 +20,7 @@ const Bag:React.FC<BagProps> = ({setIsBag}) => {
             <BagClose onClick={()=>setIsBag(false)}>Close</BagClose>
             <BagHeader>Your Cart</BagHeader>
             <BagProducts>
-              {!cart ? <CircularProgress/> : cart?.map(product=><CartProduct key={product.id} id={product.id} title={product.name} price={product.price} img={product.img}/>)}
+              {!data ? <h2>Login to see cart</h2> : (cart ? cart.map(product=><CartProduct key={product.id} id={product.id} title={product.name} price={product.price} img={product.img}/>) : <CircularProgress />)}
             </BagProducts>
             <p style={{fontSize:'0.7rem',margin:'1.5rem 0'}}>limit 10 items per order please make sure all items in cart are correct. we cannot cancel or modify orders once they are placed orders process within 5-7 business days. you will receive an email with tracking information after your order ships</p>
             <BagCheckout>
@@ -27,7 +28,7 @@ const Bag:React.FC<BagProps> = ({setIsBag}) => {
                 <h4>subtotal: </h4>
                 <p>{Math.round(subtotal * 10) / 10}0 &euro;</p>
               </BagPriceCheckout>
-              <BagButtonCheckout>checkout</BagButtonCheckout>
+              <BagButtonCheckout><Link to={`/checkout/${data?.id}`} style={{textDecoration:'none',color:'white'}}>checkout</Link></BagButtonCheckout>
             </BagCheckout>
         </BagContainer>
     </BagBackground>

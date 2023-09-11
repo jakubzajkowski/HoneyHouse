@@ -17,7 +17,7 @@ const Nav:React.FC = () => {
   const [isBag,setIsBag]=useState<boolean>(false)
   const theme = useSelector((state:InitialStateType)=>state.theme)
   const {data} = useAuth()
-  const {cart} = useCart(data?.id as string)
+  const {cart} = useCart()
 
   const handleScroll = () => {
     const currentScrollPos = window.scrollY
@@ -61,7 +61,7 @@ const Nav:React.FC = () => {
           </NavBarMobileGroup>
           <Link to='/' style={{textDecoration:'none',color:'black'}}><Logo>Honey Valley</Logo></Link>
           <NavBarMobileGroup>
-                <p style={BagStyle} onClick={()=>setIsBag(true)}>bag <BagSpan>{cart?.length}</BagSpan></p>
+                <p style={BagStyle} onClick={()=>setIsBag(true)}>bag <BagSpan>{cart ? cart?.length : 0}</BagSpan></p>
           </NavBarMobileGroup>
           <NavBarGroup>
               <NavBarOption><Link style={{color: theme ? "#e6ad00" : 'black',textDecoration: 'none',}} to={data ? '/account' : '/login'} >account</Link></NavBarOption>

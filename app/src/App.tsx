@@ -9,6 +9,7 @@ import Login from './pages/Login/page';
 import Account from './pages/Account/page';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import {BrowserRouter as Router,Routes,Route,} from "react-router-dom";
+import Checkout from './pages/Checkout/page';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='/register' element={<Register />}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/account' element={<Account/>}/>
+          <Route path='/checkout/:id' element={<Checkout />}/>
         </Routes>
       </Router>
       <Footer />

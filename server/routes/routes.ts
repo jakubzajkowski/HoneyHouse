@@ -20,7 +20,7 @@ api.post('/register', RegisterController)
 api.post('/login', LoginController)
 api.post('/add-cart', AddCartController)
 api.get('/user', Auth, UserController)
-api.get('/cart/:id', CartController)
+api.get('/cart',Auth, CartController)
 api.post('/delete-cart', DeleteCartController)
 api.post('/user-info', UserInfoController)
 
