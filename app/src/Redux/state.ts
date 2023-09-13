@@ -8,6 +8,7 @@ export interface InitialStateType{
     userData: UserDataType | null
     cartData: CartDataType[] | null
     subtotalPrice: number
+    formDataUserInfo: FormDataUserInfoType
 }
 
 export interface FormDataRegisterType {
@@ -46,7 +47,17 @@ export interface UserDataType {
         city: string
         phone: string
 }
-
+export interface FormDataUserInfoType {
+    first_name: string
+    last_name: string
+    email: string
+    country: string
+    address: string
+    apartament: string
+    postal_code: string
+    city: string
+    phone: string
+}
 export interface ProductsType{
     id: string
     category: string
@@ -80,5 +91,16 @@ export const initialState: InitialStateType = {
     },
     userData: null,
     cartData: null,
-    subtotalPrice: 0
+    subtotalPrice: 0,
+    formDataUserInfo : {
+        first_name: '',
+        last_name: '',
+        email: '',
+        country: '',
+        address: '',
+        apartament: '',
+        postal_code: '',
+        city: '',
+        phone: ''
+    }
 }

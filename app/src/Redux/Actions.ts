@@ -71,3 +71,57 @@ export const formDataRegisterFirstNameAction = (data:string):{type: string, payl
       payload: data
     }
  }
+ export const formDataUserInfoFirstNameAction = (data:string):{type: string, payload: string} => {
+   return {
+      type: "FORM_DATA_USER_INFO_FIRST_NAME_ACTION",
+      payload: data
+    }
+ }
+ export const formDataUserInfoLastNameAction = (data:string):{type: string, payload: string} => {
+   return {
+      type: "FORM_DATA_USER_INFO_LAST_NAME_ACTION",
+      payload: data
+    }
+ }
+ export const formDataUserInfoEmailAction = (data:string):{type: string, payload: string} => {
+   return {
+      type: "FORM_DATA_USER_INFO_EMAIL_ACTION",
+      payload: data
+    }
+ }
+ export const formDataUserInfoCountryAction = (data:string):{type: string, payload: string} => {
+   return {
+      type: "FORM_DATA_USER_INFO_COUNTRY_ACTION",
+      payload: data
+    }
+ }
+ export const formDataUserInfoAddressAction = (data:string):{type: string, payload: string} => {
+   return {
+      type: "FORM_DATA_USER_INFO_ADDRESS_ACTION",
+      payload: data
+    }
+ }
+ export const formDataUserInfoApartamentAction = (data:string):{type: string, payload: string} => {
+   return {
+      type: "FORM_DATA_USER_INFO_APARTAMENT_ACTION",
+      payload: data
+    }
+ }
+ export const formDataUserInfoPostalCodeAction = (data:string):{type: string, payload: string} => {
+   return {
+      type: "FORM_DATA_USER_INFO_POSTAL_CODE_ACTION",
+      payload: data
+    }
+ }
+ export const formDataUserInfoCityAction = (data:string):{type: string, payload: string} => {
+   return {
+      type: "FORM_DATA_USER_INFO_CITY_ACTION",
+      payload: data
+    }
+ }
+ export const formDataUserInfoPhoneAction = (data:string):{type: string, payload: string} => {
+   return {
+      type: "FORM_DATA_USER_INFO_PHONE_ACTION",
+      payload: data
+    }
+ }

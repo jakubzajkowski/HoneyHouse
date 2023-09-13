@@ -112,7 +112,7 @@ export const BagContainer = styled(motion.div)`
     position: fixed;
     top:0;
     bottom:0;
-    background-color: orange;
+    background-color: white;
     right:0;
     padding: 1rem;
     @media(min-width: 950px) and (max-width: 1300px){

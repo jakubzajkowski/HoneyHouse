@@ -16,10 +16,20 @@ interface UserInfoControllerBodyType {
 const UserInfoController = async (req:Request,res:Response)=>{
     const {first_name,last_name,email,country,address,apartament,postal_code,city,phone}:UserInfoControllerBodyType=req.body
     try{
+        const user = await prisma.user.findFirst({where:{email:email}})
         await prisma.user.update({ where: {
             email: email,
           },
-          data: {first_name,last_name,email,country,address,apartament,postal_code,city,phone}
+          data: {first_name:first_name ? first_name : user?.first_name,
+            last_name: last_name ? last_name : user?.last_name,
+            email: email ? email : user?.email,
+            country: country ? country : user?.country,
+            address: address ? address : user?.address,
+            apartament: apartament ? apartament : user?.apartament,
+            postal_code: postal_code ? postal_code : user?.postal_code,
+            city: city ? city : user?.city,
+            phone: phone ? phone : user?.phone
+        }
         })
         return res.status(200).json({Success: 'Updated'})
     }

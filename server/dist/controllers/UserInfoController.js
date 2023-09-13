@@ -16,10 +16,20 @@ const db_1 = __importDefault(require("../prisma/db"));
 const UserInfoController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { first_name, last_name, email, country, address, apartament, postal_code, city, phone } = req.body;
     try {
+        const user = yield db_1.default.user.findFirst({ where: { email: email } });
         yield db_1.default.user.update({ where: {
                 email: email,
             },
-            data: { first_name, last_name, email, country, address, apartament, postal_code, city, phone }
+            data: { first_name: first_name ? first_name : user === null || user === void 0 ? void 0 : user.first_name,
+                last_name: last_name ? last_name : user === null || user === void 0 ? void 0 : user.last_name,
+                email: email ? email : user === null || user === void 0 ? void 0 : user.email,
+                country: country ? country : user === null || user === void 0 ? void 0 : user.country,
+                address: address ? address : user === null || user === void 0 ? void 0 : user.address,
+                apartament: apartament ? apartament : user === null || user === void 0 ? void 0 : user.apartament,
+                postal_code: postal_code ? postal_code : user === null || user === void 0 ? void 0 : user.postal_code,
+                city: city ? city : user === null || user === void 0 ? void 0 : user.city,
+                phone: phone ? phone : user === null || user === void 0 ? void 0 : user.phone
+            }
         });
         return res.status(200).json({ Success: 'Updated' });
     }

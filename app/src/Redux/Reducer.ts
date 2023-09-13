@@ -31,8 +31,26 @@ const Reducer = (state = initialState, action:ActionType) : InitialStateType => 
       return { ...state, userData: action.payload as UserDataType}
     case 'CART_DATA_ACTION':
       return { ...state, cartData: action.payload as CartDataType[]}
-      case 'CART_SUBTOTAL_ACTION':
+    case 'CART_SUBTOTAL_ACTION':
       return { ...state, subtotalPrice: action.payload as number}
+    case 'FORM_DATA_USER_INFO_FIRST_NAME_ACTION':
+        return { ...state, formDataUserInfo: {...state.formDataUserInfo, first_name: action.payload as string}}
+    case 'FORM_DATA_USER_INFO_LAST_NAME_ACTION':
+        return { ...state, formDataUserInfo: {...state.formDataUserInfo, last_name: action.payload as string}}
+    case 'FORM_DATA_USER_INFO_EMAIL_ACTION':
+        return { ...state, formDataUserInfo: {...state.formDataUserInfo, email: action.payload as string}}
+    case 'FORM_DATA_USER_INFO_COUNTRY_ACTION':
+        return { ...state, formDataUserInfo: {...state.formDataUserInfo, country: action.payload as string}}
+    case 'FORM_DATA_USER_INFO_ADDRESS_ACTION':
+        return { ...state, formDataUserInfo: {...state.formDataUserInfo, address: action.payload as string}}
+    case 'FORM_DATA_USER_INFO_APARTAMENT_ACTION':
+        return { ...state, formDataUserInfo: {...state.formDataUserInfo, apartament: action.payload as string}}
+    case 'FORM_DATA_USER_INFO_POSTAL_CODE_ACTION':
+        return { ...state, formDataUserInfo: {...state.formDataUserInfo, postal_code: action.payload as string}}
+    case 'FORM_DATA_USER_INFO_CITY_ACTION':
+        return { ...state, formDataUserInfo: {...state.formDataUserInfo, city: action.payload as string}}
+    case 'FORM_DATA_USER_INFO_PHONE_ACTION':
+        return { ...state, formDataUserInfo: {...state.formDataUserInfo, phone: action.payload as string}}
     default:
       return state
   }
