@@ -10,6 +10,7 @@ import AddCartController from '../controllers/AddCartController';
 import CartController from '../controllers/CartController';
 import DeleteCartController from '../controllers/DeleteCartController';
 import UserInfoController from '../controllers/UserInfoController';
+import CheckoutController from '../controllers/CheckoutController';
 
 const api:Router = express.Router();
 
@@ -23,6 +24,7 @@ api.get('/user', Auth, UserController)
 api.get('/cart',Auth, CartController)
 api.post('/delete-cart', DeleteCartController)
 api.post('/user-info', UserInfoController)
+api.post('/checkout', CheckoutController)
 
 
 export default api

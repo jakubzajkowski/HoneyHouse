@@ -15,6 +15,7 @@ const AddCartController_1 = __importDefault(require("../controllers/AddCartContr
 const CartController_1 = __importDefault(require("../controllers/CartController"));
 const DeleteCartController_1 = __importDefault(require("../controllers/DeleteCartController"));
 const UserInfoController_1 = __importDefault(require("../controllers/UserInfoController"));
+const CheckoutController_1 = __importDefault(require("../controllers/CheckoutController"));
 const api = express_1.default.Router();
 api.get('/products', ProductsController_1.default);
 api.get('/products/:category', CategoryController_1.default);
@@ -26,4 +27,5 @@ api.get('/user', Auth_1.Auth, UserController_1.default);
 api.get('/cart', Auth_1.Auth, CartController_1.default);
 api.post('/delete-cart', DeleteCartController_1.default);
 api.post('/user-info', UserInfoController_1.default);
+api.post('/checkout', CheckoutController_1.default);
 exports.default = api;
