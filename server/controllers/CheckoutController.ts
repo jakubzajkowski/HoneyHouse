@@ -4,6 +4,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string,{apiVersion: '
 
 const CheckoutController=async (req:express.Request,res:express.Response)=>{
     const {data} = req.body
+    console.log(data)
     if (data.length!=0){
         try{
             const params: Stripe.Checkout.SessionCreateParams = {

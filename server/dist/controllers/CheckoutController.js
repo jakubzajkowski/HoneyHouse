@@ -16,6 +16,7 @@ const stripe_1 = __importDefault(require("stripe"));
 const stripe = new stripe_1.default(process.env.STRIPE_SECRET_KEY, { apiVersion: '2023-08-16' });
 const CheckoutController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { data } = req.body;
+    console.log(data);
     if (data.length != 0) {
         try {
             const params = {

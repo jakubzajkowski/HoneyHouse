@@ -5,12 +5,16 @@ import { Navigate,Link} from 'react-router-dom'
 import useCart from '../../hooks/useCart'
 import CheckoutProduct from './components/CheckoutProduct'
 import { CircularProgress } from '@mui/material';
+import { CheckoutHandler,CheckoutHandlerArgs } from '../../handlers/CheckoutHandler'
 
 const Checkout:React.FC = () => {
   const {data}=useAuth()
   const {cart,subtotal} = useCart() 
 
-  console.log(cart)
+  const handleSubmit = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>):void=>{
+    e.preventDefault()
+    CheckoutHandler(cart as CheckoutHandlerArgs[])
+  }
 
   if (!data) return <div>Loading...</div>
 
@@ -34,7 +38,7 @@ const Checkout:React.FC = () => {
               <InfoDoubleInput placeholder='City' defaultValue={data.city && data.city}/>
             </InputContainer>
             <InfoInput placeholder='Phone Number' type='number' defaultValue={data.phone && data.phone}/>
-            <InfoButton>Pay</InfoButton>
+            <InfoButton onClick={(e)=>handleSubmit(e)}>Pay</InfoButton>
           </FormInfo>
        </CheckoutForm>
        <CheckoutItems>
