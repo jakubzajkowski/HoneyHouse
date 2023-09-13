@@ -17,23 +17,22 @@ const bcrypt_1 = __importDefault(require("bcrypt"));
 const RegisterController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const saltRounds = 10;
     const { first_name, last_name, email, password } = req.body;
-    console.log(first_name, last_name, email, password);
     try {
         if (first_name && last_name && email && password) {
             const userUniqueCheck = yield db_1.default.user.findFirst({ where: { email: email } });
             if (!userUniqueCheck) {
                 const hash = bcrypt_1.default.hashSync(password, saltRounds);
                 yield db_1.default.user.create({ data: {
-                        first_name,
-                        last_name,
-                        email,
+                        first_name: first_name,
+                        last_name: last_name,
+                        email: email,
                         password: hash,
                         country: "",
                         address: "",
                         apartament: "",
                         postal_code: "",
                         city: "",
-                        phone: ""
+                        phone: "",
                     }
                 });
                 res.status(200).json({ success: 'Register success' });

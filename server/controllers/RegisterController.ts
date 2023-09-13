@@ -12,23 +12,23 @@ interface RegisterControllerBodyType {
 const RegisterController = async (req:Request,res:Response)=>{
     const saltRounds:number = 10
     const {first_name,last_name,email,password}:RegisterControllerBodyType = req.body
-    console.log(first_name,last_name,email,password)
     try{
        if (first_name && last_name && email && password) {
         const userUniqueCheck = await prisma.user.findFirst({where:{email:email}})
         if (!userUniqueCheck){
             const hash = bcrypt.hashSync(password, saltRounds);
             await prisma.user.create({data:{
-                first_name,
-                last_name,
-                email,
-                password:hash,
-                country:"",
-                address:"",
-                apartament:"",
-                postal_code:"",
-                city:"",
-                phone:""}
+                first_name: first_name,
+                last_name: last_name,
+                email: email,
+                password: hash,
+                country: "",
+                address: "",
+                apartament: "",
+                postal_code: "",
+                city: "",
+                phone: "",
+            }
             })
             res.status(200).json({success: 'Register success'})
         }

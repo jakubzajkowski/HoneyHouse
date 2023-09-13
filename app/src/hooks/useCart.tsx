@@ -12,7 +12,7 @@ const useCart = () => {
     const subtotal = useSelector((state:InitialStateType)=>state.subtotalPrice)
 
     useEffect(()=>{
-      if (isTokenExpired(token as string)){
+      if (isTokenExpired(token)){
         const intervalId = setInterval(() => {
           fetchCart(token as string,dispatch)
           fetchCartSubtotal(token as string,dispatch)

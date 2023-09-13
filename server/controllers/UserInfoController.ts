@@ -17,6 +17,7 @@ const UserInfoController = async (req:Request,res:Response)=>{
     const {first_name,last_name,email,country,address,apartament,postal_code,city,phone}:UserInfoControllerBodyType=req.body
     try{
         const user = await prisma.user.findFirst({where:{email:email}})
+        console.log(user)
         await prisma.user.update({ where: {
             email: email,
           },

@@ -11,7 +11,7 @@ const useAuth = () => {
     const data = useSelector((state:InitialStateType)=>state.userData)
   
     useEffect(()=>{
-      if (isTokenExpired(token as string)){
+      if (isTokenExpired(token)){
         fetchUserAuth(token as string,dispatch,setIsLoading)
       }
     },[])

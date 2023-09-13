@@ -14,6 +14,7 @@ export const RegisterHandler = (data : RegisterHandlerArgs,setServerError:React.
         email:data.email,
         password: data.password
     }).then(({data})=>{
+        console.log(data)
         location.href='/login'
     }).catch((err)=>{
         setServerError(err.response.data.error)

@@ -17,6 +17,7 @@ const UserInfoController = (req, res) => __awaiter(void 0, void 0, void 0, funct
     const { first_name, last_name, email, country, address, apartament, postal_code, city, phone } = req.body;
     try {
         const user = yield db_1.default.user.findFirst({ where: { email: email } });
+        console.log(user);
         yield db_1.default.user.update({ where: {
                 email: email,
             },
