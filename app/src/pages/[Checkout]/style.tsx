@@ -7,7 +7,7 @@ export const Main = styled.div`
 export const CheckoutContainer = styled.div`
     display: flex;
     width: 80%;
-    flex-wrap: wrap;
+    flex-wrap:wrap;
     gap:3rem;
     margin: 3rem auto 1rem auto;
 `
@@ -15,11 +15,17 @@ export const CheckoutContainer = styled.div`
 export const CheckoutForm = styled.div`
     width: 49%;
     padding:1rem;
+    @media(max-width: 950px){
+        width: 100%;
+    }
 `
 
 export const CheckoutItems = styled.div`
-    width: 30%;
+    width: 35%;
     padding:1rem;
+    @media(max-width: 950px){
+        width: 100%;
+    }
 `
 export const Logo = styled.h2`
     cursor:pointer;
@@ -60,4 +66,10 @@ export const InfoDoubleInput = styled.input`
     padding: 0.8rem;
     margin:1rem 0;
     font-size:0.9rem;
+`
+export const CheckoutSubtotal = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0 1.5rem 0 ;
 `

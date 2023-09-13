@@ -6,7 +6,11 @@ export const Main = styled.div`
 `
 export const ShopHeader = styled.h1`
     text-align:center;
+    font-size: 10rem;
     font-family: 'Sedgwick Ave Display', cursive;
+    @media(max-width: 950px){
+        font-size: 3rem;
+    }
 `
 export const FilterContainer = styled.div`
     width: 100%;

@@ -1,13 +1,14 @@
 import React from 'react'
 import useAuth from '../../hooks/useAuth'
-import {Main,CheckoutContainer,CheckoutForm,CheckoutItems,Logo,FormInfo,InfoButton,InfoDoubleInput,InfoInput,InputContainer} from './style'
-import { Navigate,Link,useParams } from 'react-router-dom'
+import {Main,CheckoutContainer,CheckoutForm,CheckoutItems,Logo,FormInfo,InfoButton,InfoDoubleInput,InfoInput,InputContainer,CheckoutSubtotal} from './style'
+import { Navigate,Link} from 'react-router-dom'
 import useCart from '../../hooks/useCart'
-import CheckoutProduct from './components/checkoutProduct'
+import CheckoutProduct from './components/CheckoutProduct'
+import { CircularProgress } from '@mui/material';
 
 const Checkout:React.FC = () => {
   const {data}=useAuth()
-  const {cart} = useCart() 
+  const {cart,subtotal} = useCart() 
 
   console.log(cart)
 
@@ -33,15 +34,25 @@ const Checkout:React.FC = () => {
               <InfoDoubleInput placeholder='City' value={data.city && data.city}/>
             </InputContainer>
             <InfoInput placeholder='Phone Number' type='number' value={data.phone && data.phone}/>
-            <InfoButton>Accept</InfoButton>
+            <InfoButton>Pay</InfoButton>
           </FormInfo>
        </CheckoutForm>
        <CheckoutItems>
-          {cart?.map(element=><CheckoutProduct key={element.id} img={element.img} price={element.price} name={element.name}/> )}
+          {cart ? cart.map(element=><CheckoutProduct key={element.id} img={element.img} price={element.price} name={element.name}/>) : <CircularProgress/>}
+          <hr style={{margin:'1rem 0'}}/>
+          <CheckoutSubtotal>
+            <p>Subtotal: </p>
+            <p style={{fontWeight:'bold'}}>{Math.round(subtotal*10)/10} &euro;</p>
+          </CheckoutSubtotal>
+          <CheckoutSubtotal>
+            <p>Total: </p>
+            <p style={{fontWeight:'bold',fontSize:'1.5rem'}}>{Math.round(subtotal*10)/10} &euro;</p>
+          </CheckoutSubtotal>
        </CheckoutItems>
       </CheckoutContainer>
     </Main>
   )
+  else return <Navigate to="/login" replace />
 }
 
 export default Checkout

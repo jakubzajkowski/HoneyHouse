@@ -10,6 +10,7 @@ export const NavBar = styled(motion.div)<StyleProps>`
     top: 0;
     width: 100%;
     display: flex;
+    z-index:100;
     justify-content: space-between;
     background-color: white;
     color: ${props => props.theme==true ? "#e6ad00" : "black"};

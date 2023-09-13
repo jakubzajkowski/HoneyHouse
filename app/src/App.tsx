@@ -9,7 +9,7 @@ import Login from './pages/Login/page';
 import Account from './pages/Account/page';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import {BrowserRouter as Router,Routes,Route,} from "react-router-dom";
-import Checkout from './pages/Checkout/page';
+import Checkout from './pages/[Checkout]/page';
 
 function App() {
   return (

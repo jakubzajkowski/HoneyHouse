@@ -24,15 +24,18 @@ export const ProductContainer = styled.div`
    justify-content: space-around;
 `
 export const ProductElement = styled.div`
-    width: 22%;
+    width: 400px;
+    height: 400px;
     text-align: right;
-    padding:0.5rem;
+    padding:1rem;
     margin: 0.5rem 0;
     border: 2px solid white;
+    border-radius: 100rem;
     cursor:pointer;
     overflow: hidden;
     @media(max-width: 950px){
         width: 49%;
+        height: auto;
     }
     &:hover{
         border: 2px solid orange;
@@ -41,18 +44,21 @@ export const ProductElement = styled.div`
 export const ProductElementImg = styled(motion.img)`
     display: block;
     margin: 0 auto;
-    width: 90%;
+    width: 40%;
+    @media(max-width: 950px){
+        width: 90%;
+    }
 `
 export const ProductElementPrice = styled(motion.p)`
-    margin: 5rem 0.5rem 0 0.5rem;
+    margin: 3rem 0.5rem 0 0.5rem;
+    text-align: center;
     font-size:0.9rem;
 `
 export const ProductElementTitle = styled(motion.p)`
-    margin: 1rem 1rem 0 1rem;
     font-size:0.9rem;
     text-align: center;
     font-weight: bold;
-    margin: 1rem 0.5rem 4rem 0.5rem;
+    margin: 1rem 0.5rem 3rem 0.5rem;
 `
 export const Wallpapar = styled.img`
     width: 80%;

@@ -2,6 +2,7 @@ import {useState,useEffect} from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import { fetchUserAuth } from '../Redux/Apis'
 import { InitialStateType } from '../Redux/state'
+import isTokenExpired from '../utils/isTokenExpired'
 
 const useAuth = () => {
     const token = localStorage.getItem('token')
@@ -10,7 +11,9 @@ const useAuth = () => {
     const data = useSelector((state:InitialStateType)=>state.userData)
   
     useEffect(()=>{
-      fetchUserAuth(token as string,dispatch,setIsLoading)
+      if (isTokenExpired(token as string)){
+        fetchUserAuth(token as string,dispatch,setIsLoading)
+      }
     },[])
   return {isLoading,data}
 }

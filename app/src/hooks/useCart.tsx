@@ -3,6 +3,7 @@ import { useSelector,useDispatch } from 'react-redux'
 import { fetchCart } from '../Redux/Apis'
 import { fetchCartSubtotal } from '../Redux/Apis'
 import { InitialStateType } from '../Redux/state'
+import isTokenExpired from '../utils/isTokenExpired'
 
 const useCart = () => {
     const token = localStorage.getItem('token')
@@ -11,11 +12,13 @@ const useCart = () => {
     const subtotal = useSelector((state:InitialStateType)=>state.subtotalPrice)
 
     useEffect(()=>{
-      const intervalId = setInterval(() => {
-        fetchCart(token as string,dispatch)
-        fetchCartSubtotal(token as string,dispatch)
-      },1000)
-        return () => clearInterval(intervalId);
+      if (isTokenExpired(token as string)){
+        const intervalId = setInterval(() => {
+          fetchCart(token as string,dispatch)
+          fetchCartSubtotal(token as string,dispatch)
+        },1000)
+          return () => clearInterval(intervalId);
+      }
     },[])
   return {cart,subtotal}
 }

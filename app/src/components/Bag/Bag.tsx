@@ -12,7 +12,7 @@ interface BagProps {
 
 const Bag:React.FC<BagProps> = ({setIsBag}) => {
   const {data,isLoading} = useAuth()
-  const {cart,subtotal}=useCart()
+  const {cart,subtotal} = useCart()
 
 
   return (<BagBackground onClick={()=>setIsBag(false)}>
@@ -26,9 +26,9 @@ const Bag:React.FC<BagProps> = ({setIsBag}) => {
             <BagCheckout>
               <BagPriceCheckout>
                 <h4>subtotal: </h4>
-                <p>{Math.round(subtotal * 10) / 10}0 &euro;</p>
+                <p>{subtotal} &euro;</p>
               </BagPriceCheckout>
-              <BagButtonCheckout><Link to={`/checkout/${data?.id}`} style={{textDecoration:'none',color:'white'}}>checkout</Link></BagButtonCheckout>
+              <BagButtonCheckout><Link to={data ? `/checkout/${data.id}` : '/login'} style={{textDecoration:'none',color:'white'}}>checkout</Link></BagButtonCheckout>
             </BagCheckout>
         </BagContainer>
     </BagBackground>
