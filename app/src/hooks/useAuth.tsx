@@ -13,6 +13,8 @@ const useAuth = () => {
     useEffect(()=>{
       if (isTokenExpired(token)){
         fetchUserAuth(token as string,dispatch,setIsLoading)
+      }else{
+        setIsLoading(false)
       }
     },[])
   return {isLoading,data}

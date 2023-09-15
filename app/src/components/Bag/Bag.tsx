@@ -26,7 +26,7 @@ const Bag:React.FC<BagProps> = ({setIsBag}) => {
             <BagCheckout>
               <BagPriceCheckout>
                 <h4>subtotal: </h4>
-                <p>{subtotal} &euro;</p>
+                <p>{Math.round(subtotal*100)/100} &euro;</p>
               </BagPriceCheckout>
               <BagButtonCheckout><Link to={data ? `/checkout/${data.id}` : '/login'} style={{textDecoration:'none',color:'white'}}>checkout</Link></BagButtonCheckout>
             </BagCheckout>

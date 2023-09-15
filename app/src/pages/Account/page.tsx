@@ -29,11 +29,10 @@ const Account:React.FC = () => {
 
   const handleSubmit=(e:React.MouseEvent<HTMLButtonElement, MouseEvent>):void=>{
     e.preventDefault()
-    console.log(formData)
     UserInfoHandler(formData)
   }
 
-  if (isLoading && !data) return <div>Loading...</div>
+  if (isLoading) return <div>Loading...</div>
 
   if (data) return (
     <Main>

@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux'
 import Bag from '../Bag/Bag'
 import useAuth from '../../hooks/useAuth'
 import useCart from '../../hooks/useCart'
+import { LogoutHandler } from '../../handlers/LogoutHandler'
 
 
 const Nav:React.FC = () => {
@@ -66,7 +67,7 @@ const Nav:React.FC = () => {
           <NavBarGroup>
               <NavBarOption><Link style={{color: theme ? "#e6ad00" : 'black',textDecoration: 'none',}} to={data ? '/account' : '/login'} >account</Link></NavBarOption>
               <NavBarOption>search</NavBarOption>
-              <NavBarOption><Link style={{color: theme ? "#e6ad00" : 'black',textDecoration: 'none',}} to='/login'>log in</Link></NavBarOption>
+              <NavBarOption>{data ? <p onClick={()=>LogoutHandler()}>log off</p> : <Link style={{color: theme ? "#e6ad00" : 'black',textDecoration: 'none',}} to='/login'>log in</Link>}</NavBarOption>
               <NavBarOption onClick={()=>setIsBag(true)}>bag <BagSpan>{cart ? cart?.length : 0}</BagSpan></NavBarOption>
           </NavBarGroup>
       </NavBar>
