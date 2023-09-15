@@ -1,16 +1,19 @@
 import React,{useEffect} from 'react'
 import Nav from '../../components/Nav/Nav'
 import { Main,Header,ProductContainer} from './styles'
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch, connect} from 'react-redux'
 import { InitialStateType } from '../../Redux/state'
 import { fetchProductsData } from '../../Redux/Apis'
 import Product from './Components/Product/Product'
 import { WallpaperList } from './Components/Wallpaper/WallpaperList'
 import Wallpaper from './Components/Wallpaper/Wallpaper'
 
-const Home:React.FC = () => {
+interface HomeProps {
+    products: InitialStateType['products']
+}
+
+const Home:React.FC<HomeProps> = ({products}) => {
   const dispatch = useDispatch()
-  const products = useSelector((state:InitialStateType)=>state.products)
 
   useEffect(() => {
     fetchProductsData(dispatch)
@@ -29,4 +32,9 @@ const Home:React.FC = () => {
   )
 }
 
-export default Home
+const mapStateToProps = (state:InitialStateType) => ({
+  products: state.products,
+});
+
+
+export default connect(mapStateToProps)(Home)

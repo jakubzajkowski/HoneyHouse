@@ -99,3 +99,19 @@ export const ProductButton = styled.button`
     -moz-box-shadow: 0px 0px 0px 2px rgb(236, 192, 45);
     box-shadow: 0px 0px 0px 2px rgb(236, 192, 45);
 `
+export const PageButtonsContainer = styled.div`
+    width: 50%;
+    display: flex;
+    margin: 1rem auto 1rem auto;
+    justify-content: center;
+    gap:1rem;
+`
+export const PageButton = styled.button`
+    border-radius: 10rem;
+    padding: 0.8rem 1.1rem;
+    color: white;
+    background-color: black;
+    border:none;
+    cursor: pointer;
+    font-size: 1rem;
+`

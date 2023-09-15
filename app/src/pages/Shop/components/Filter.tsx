@@ -6,13 +6,15 @@ import {useDispatch} from 'react-redux'
 interface FilterProps {
     setIsFilter:React.Dispatch<React.SetStateAction<boolean>>,
     productsCount: number | undefined
+    setCurrentPage : React.Dispatch<React.SetStateAction<number>>
 }
 
-const Filter:React.FC<FilterProps> = ({setIsFilter,productsCount}) => {
+const Filter:React.FC<FilterProps> = ({setIsFilter,productsCount,setCurrentPage}) => {
   const dispatch = useDispatch()
 
   const handleFilter = (e:React.ChangeEvent<HTMLSelectElement>):void => {
     setIsFilter(true)
+    setCurrentPage(1)
     fetchShopProductsData(e.currentTarget.value,dispatch)
   }
 

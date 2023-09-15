@@ -4,7 +4,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import { InitialStateType } from '../../Redux/state'
 import { fetchProductsData} from '../../Redux/Apis'
 import Nav from '../../components/Nav/Nav'
-import { Main,ShopHeader } from './styles'
+import { Main,ShopHeader,PageButton,PageButtonsContainer } from './styles'
 import Filter from './components/Filter'
 import Product from '../Home/Components/Product/Product'
 
@@ -13,24 +13,46 @@ const Shop:React.FC = () => {
   const dispatch = useDispatch()
   const products = useSelector((state:InitialStateType)=>state.products)
   const filterProducts = useSelector((state:InitialStateType)=>state.shopProducts)
+  const [currentPage,setCurrentPage] = useState<number>(1)
+  const [postPerPage,setPostPerPage] = useState<number>(8)
+  const pages = [];
 
   useEffect(() => {
     fetchProductsData(dispatch)
   },[])
 
+  const lastPageIndex = currentPage * postPerPage;
+  const firstPageIndex = lastPageIndex-postPerPage;
+
+  const currentProducts  = products?.slice(firstPageIndex,lastPageIndex)
+  const currentFilterProducts = filterProducts?.slice(firstPageIndex,lastPageIndex)
+  const pagesNumber = Math.ceil((isFilter ? filterProducts?.length as number : products?.length as number)/postPerPage)
+
+  for (let i=1;i<pagesNumber+1;i++){
+    pages.push(i)
+  }
+
+  const handlePageChange = (page:number)=>{
+      setCurrentPage(page)
+      window.scrollTo(0, 150);
+  }
+
   return (
       <Main>
         <Nav />
-        <Filter setIsFilter={setIsfilter} productsCount={isFilter ? filterProducts?.length : products?.length}/>
+        <Filter setIsFilter={setIsfilter} setCurrentPage={setCurrentPage} productsCount={isFilter ? filterProducts?.length : products?.length}/>
         <ShopHeader>Shop All</ShopHeader>
         <ProductContainer>
             {
             isFilter ? 
-            filterProducts?.map(product=><Product data={product} key={product.id}/>) 
+            currentFilterProducts?.map(product=><Product data={product} key={product.id}/>) 
             : 
-            products?.map(product=><Product data={product} key={product.id}/>)
+            currentProducts?.map(product=><Product data={product} key={product.id}/>)
             }
         </ProductContainer>
+        <PageButtonsContainer>
+         {pages.map(page=><PageButton onClick={()=>handlePageChange(page)}>{page}</PageButton>)}
+        </PageButtonsContainer>
       </Main>
   )
 }
