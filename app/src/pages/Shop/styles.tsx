@@ -16,11 +16,13 @@ export const FilterContainer = styled.div`
     width: 100%;
     display:flex;
     justify-content: space-between;
-    padding:3rem;
+    padding:0.5rem 3rem;
     flex-wrap: wrap;
+    background-color: black;
+    color: white;
     @media(max-width: 950px){
         padding:0.5rem;
-        margin: 1rem 0 ;
+        margin: 0.5rem 0 ;
     }
 `
 export const FilterCategory = styled.div`
@@ -38,7 +40,7 @@ export const FilterCategorySelect = styled.select`
     font-size:0.9rem;
     @media(max-width: 950px){
         font-size: 0.8rem;
-        margin:0 0.2rem;
+        margin:0.5rem 0.5rem;
         padding:0.5rem 0.5rem;
     }
 `
@@ -114,4 +116,44 @@ export const PageButton = styled.button`
     border:none;
     cursor: pointer;
     font-size: 1rem;
+`
+export const SortContainer = styled.div`
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    padding: 0.5rem 3rem;
+    margin: 0.5rem 0;
+    flex-wrap: wrap;
+    background-color: black;
+    color: white;
+    @media(max-width: 950px){
+        padding:0.5rem;
+        margin: 1rem 0 ;
+    }
+`
+export const SortCategory = styled.div`
+   display:flex;
+   align-items:center;
+   @media(max-width: 950px){
+    width:100%;
+}
+`
+export const SortCategorySelect = styled.select`
+    border:none;
+    padding:0.5rem 1rem;
+    display:inline;
+    margin:0 1rem;
+    font-size:0.9rem;
+    @media(max-width: 950px){
+        font-size: 0.8rem;
+        margin:0 0.5rem;
+        padding:0.5rem 0.5rem;
+    }
+`
+export const SortCategoryOption = styled.option`
+    padding:1rem 1rem;
+    font-size:1rem;
+    @media(max-width: 950px){
+        font-size: 0.8rem;
+    }
 `

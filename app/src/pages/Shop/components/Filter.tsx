@@ -7,15 +7,26 @@ interface FilterProps {
     setIsFilter:React.Dispatch<React.SetStateAction<boolean>>,
     productsCount: number | undefined
     setCurrentPage : React.Dispatch<React.SetStateAction<number>>
+    setCategory: React.Dispatch<React.SetStateAction<string>>
 }
 
-const Filter:React.FC<FilterProps> = ({setIsFilter,productsCount,setCurrentPage}) => {
+const Filter:React.FC<FilterProps> = ({setIsFilter,productsCount,setCurrentPage,setCategory}) => {
   const dispatch = useDispatch()
 
   const handleFilter = (e:React.ChangeEvent<HTMLSelectElement>):void => {
-    setIsFilter(true)
-    setCurrentPage(1)
-    fetchShopProductsData(e.currentTarget.value,dispatch)
+    const sort = {
+      sort: false,
+      type: 'none' as 'none',
+    }
+    if (e.target.value==""){
+      setIsFilter(false)
+    }
+    else{
+      setIsFilter(true)
+      setCurrentPage(1)
+      setCategory(e.currentTarget.value)
+      fetchShopProductsData(e.currentTarget.value,dispatch,sort)
+    }
   }
 
   return (

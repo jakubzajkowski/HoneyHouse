@@ -15,8 +15,13 @@ interface HomeProps {
 const Home:React.FC<HomeProps> = ({products}) => {
   const dispatch = useDispatch()
 
+  const sort = {
+    sort: false,
+    type: 'none' as 'none',
+  }
+
   useEffect(() => {
-    fetchProductsData(dispatch)
+    fetchProductsData(dispatch,sort)
   },[])
 
   return (<Main>

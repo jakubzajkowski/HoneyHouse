@@ -7,6 +7,7 @@ import Nav from '../../components/Nav/Nav'
 import { Main,ShopHeader,PageButton,PageButtonsContainer } from './styles'
 import Filter from './components/Filter'
 import Product from '../Home/Components/Product/Product'
+import Sort from './components/Sort'
 
 const Shop:React.FC = () => {
   const [isFilter,setIsfilter] = useState<boolean>(false)
@@ -14,11 +15,17 @@ const Shop:React.FC = () => {
   const products = useSelector((state:InitialStateType)=>state.products)
   const filterProducts = useSelector((state:InitialStateType)=>state.shopProducts)
   const [currentPage,setCurrentPage] = useState<number>(1)
-  const [postPerPage,setPostPerPage] = useState<number>(8)
+  const [category,setCategory] = useState<string>('')
+  const postPerPage = 8
   const pages = [];
 
+  const sort = {
+    sort: false,
+    type: 'none' as 'none',
+  }
+
   useEffect(() => {
-    fetchProductsData(dispatch)
+    fetchProductsData(dispatch,sort)
   },[])
 
   const lastPageIndex = currentPage * postPerPage;
@@ -40,7 +47,8 @@ const Shop:React.FC = () => {
   return (
       <Main>
         <Nav />
-        <Filter setIsFilter={setIsfilter} setCurrentPage={setCurrentPage} productsCount={isFilter ? filterProducts?.length : products?.length}/>
+        <Filter setCategory={setCategory} setIsFilter={setIsfilter} setCurrentPage={setCurrentPage} productsCount={isFilter ? filterProducts?.length : products?.length}/>
+        <Sort category={category} isFiltered={isFilter}/>
         <ShopHeader>Shop All</ShopHeader>
         <ProductContainer>
             {
@@ -51,7 +59,7 @@ const Shop:React.FC = () => {
             }
         </ProductContainer>
         <PageButtonsContainer>
-         {pages.map(page=><PageButton onClick={()=>handlePageChange(page)}>{page}</PageButton>)}
+         {pages.map(page=><PageButton key={page} onClick={()=>handlePageChange(page)}>{page}</PageButton>)}
         </PageButtonsContainer>
       </Main>
   )

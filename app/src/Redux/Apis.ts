@@ -3,16 +3,28 @@ import { productsApiAction,shopProductsApiAction,productApiAction,userDataAuthAc
 import { AnyAction,Dispatch } from "redux";
 import { ProductsType,UserDataType,CartDataType } from "./state";
 import { cartDataAction } from "./Actions";
+import { sortRules } from "../utils/sortRules";
 
-export const fetchProductsData=(dispatch:Dispatch<AnyAction>):any=>{
+export interface FetchProductsDataSortedArg {
+  sort: boolean
+  type : 'priceAsc' | 'nameAsc' | 'weightAsc' | 'priceDesc' | 'nameDesc' | 'weightDesc' | 'none'
+}
+
+export const fetchProductsData=(dispatch:Dispatch<AnyAction>,sorted:FetchProductsDataSortedArg):any=>{
     return axios.get(`${import.meta.env.VITE_HOST_URI}/api/products`)
       .then(({ data }) => {
-      dispatch(productsApiAction<ProductsType[]>(data));
+        const dataToSort: ProductsType[] = data
+
+        dataToSort.sort((a,b)=>sortRules(a,b,sorted))
+      dispatch(productsApiAction<ProductsType[]>(sorted.sort ? dataToSort : data));
     });
 }
-export const fetchShopProductsData=(category:string,dispatch:Dispatch<AnyAction>):any=>{
+export const fetchShopProductsData=(category:string,dispatch:Dispatch<AnyAction>,sorted:FetchProductsDataSortedArg):any=>{
   return axios.get(`${import.meta.env.VITE_HOST_URI}/api/products/${category}`)
     .then(({ data }) => {
+      const dataToSort: ProductsType[] = data
+
+      dataToSort.sort((a,b)=>sortRules(a,b,sorted))
     dispatch(shopProductsApiAction<ProductsType[]>(data));
   });
 }
