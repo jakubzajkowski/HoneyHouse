@@ -11,7 +11,7 @@ interface BagProps {
 }
 
 const Bag:React.FC<BagProps> = ({setIsBag}) => {
-  const {data,isLoading} = useAuth()
+  const {data} = useAuth()
   const {cart,subtotal} = useCart()
 
 

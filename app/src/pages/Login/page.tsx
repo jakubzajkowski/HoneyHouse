@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import React,{useState} from 'react'
 import Nav from '../../components/Nav/Nav'
 import { Main,LoginHeader,LoginButton,LoginInput,LoginForm } from './styles'
 import { Link } from 'react-router-dom'
