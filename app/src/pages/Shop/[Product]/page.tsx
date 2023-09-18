@@ -16,7 +16,7 @@ const Product:React.FC = () => {
 
     useEffect(() => {
         fetchProductData(id as string,dispatch)
-      },[])
+      },[id])
 
     const handleAddCart= (userId:string ,category:string,productId:string,price:number):void=>{
         const data:AddCartHandlerArgs = { userId: userId,product_category:category, product_id: productId ,price: price }

@@ -9,6 +9,7 @@ import Bag from '../Bag/Bag'
 import useAuth from '../../hooks/useAuth'
 import useCart from '../../hooks/useCart'
 import { LogoutHandler } from '../../handlers/LogoutHandler'
+import Search from '../Search/Search'
 
 
 const Nav:React.FC = () => {
@@ -16,6 +17,7 @@ const Nav:React.FC = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isMobileMenu,setIsMobileMenu]=useState<boolean>(false)
   const [isBag,setIsBag]=useState<boolean>(false)
+  const [isSearch,setIsSearch]=useState<boolean>(false)
   const theme = useSelector((state:InitialStateType)=>state.theme)
   const {data} = useAuth()
   const {cart} = useCart()
@@ -35,7 +37,7 @@ const Nav:React.FC = () => {
   useEffect(()=>{
     window.addEventListener('scroll', handleScroll);
 
-    if(isMobileMenu || isBag){
+    if(isMobileMenu || isBag || isSearch){
       document.body.style.overflow = 'hidden';
     }
     else{
@@ -52,6 +54,9 @@ const Nav:React.FC = () => {
       <AnimatePresence>
         {isBag && <Bag setIsBag={setIsBag}/>}
       </AnimatePresence>
+      <AnimatePresence>
+        {isSearch && <Search setIsSearch={setIsSearch}/>}
+      </AnimatePresence>
       <NavBar theme={theme} initial={{y:'0%'}} animate={{y: !visible ? '-100%' : '0%'}} transition={{ease:'easeInOut',duration:'0.5'}}>
           <NavBarGroup>
               <NavBarOption><Link style={{color: theme ? "#e6ad00" : 'black',textDecoration: 'none',}} to='/shop'>shop</Link></NavBarOption>
@@ -66,7 +71,7 @@ const Nav:React.FC = () => {
           </NavBarMobileGroup>
           <NavBarGroup>
               <NavBarOption><Link style={{color: theme ? "#e6ad00" : 'black',textDecoration: 'none',}} to={data ? '/account' : '/login'} >account</Link></NavBarOption>
-              <NavBarOption>search</NavBarOption>
+              <NavBarOption onClick={()=>setIsSearch(true)}>search</NavBarOption>
               <NavBarOption>{data ? <p onClick={()=>LogoutHandler()}>log off</p> : <Link style={{color: theme ? "#e6ad00" : 'black',textDecoration: 'none',}} to='/login'>log in</Link>}</NavBarOption>
               <NavBarOption onClick={()=>setIsBag(true)}>bag <BagSpan>{cart ? cart?.length : 0}</BagSpan></NavBarOption>
           </NavBarGroup>

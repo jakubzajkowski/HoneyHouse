@@ -190,3 +190,64 @@ export const BagPriceCheckout = styled.div`
     width:49%;
     color: black;
 `
+export const SearchContainer = styled(motion.div)`
+    top: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 10%;
+    background-color: white;
+    padding: 1rem;
+    z-index:1000;
+    display:flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+`
+export const SearchContainerBackground = styled.div`
+    width: 100%;
+    position: fixed;
+    top:0;
+    z-index: 1000;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color: rgba(0,0,0,0.75);
+`
+export const SearchInput = styled.input`
+    border: 2px solid black;
+    padding: 0.8rem 0.5rem;
+    width: 20%;
+    border-radius: 0.3rem;
+    display: inline;
+    @media(max-width: 950px){
+        width: 75%;
+    }
+`
+export const SearchResults = styled.div`
+    top: 11%;
+    position: fixed;
+    left: 35%;
+    right: 35%;
+    height: 50%;
+    background-color: white;
+    padding: 0.5rem;
+    z-index:1000;
+    display:flex;
+    overflow: auto;
+    text-align: center;
+    flex-direction: column;
+    @media(max-width: 950px){
+        top: 10%;
+        left: 0;
+        right: 0;
+    }
+`
+export const SearchedProductContainer = styled.div`
+    padding: 0.5rem;
+    display:flex;
+    justify-content:space-between;
+    margin:0.5rem 0;
+    align-items: center;
+    cursor:pointer;
+`
