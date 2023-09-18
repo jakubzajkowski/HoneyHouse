@@ -45,12 +45,10 @@ const Checkout:React.FC = () => {
           {cart ? cart.map(element=><CheckoutProduct key={element.id} img={element.img} price={element.price} name={element.name}/>) : <CircularProgress/>}
           <hr style={{margin:'1rem 0'}}/>
           <CheckoutSubtotal>
-            <p>Subtotal: </p>
-            <p style={{fontWeight:'bold'}}>{Math.round(subtotal*10)/10} &euro;</p>
+            <p>Subtotal: {Math.round(subtotal * 10) / 10} &euro;</p>
           </CheckoutSubtotal>
           <CheckoutSubtotal>
-            <p>Total: </p>
-            <p style={{fontWeight:'bold',fontSize:'1.5rem'}}>{Math.round(subtotal*10)/10} &euro;</p>
+            <p>Total: <span style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>{Math.round(subtotal * 10) / 10} &euro;</span></p>
           </CheckoutSubtotal>
        </CheckoutItems>
       </CheckoutContainer>

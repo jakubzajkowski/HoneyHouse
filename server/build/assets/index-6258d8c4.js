@@ -158,7 +158,7 @@ Error generating stack: `+o.message+`
     max-height: 500px;
     overflow-y: auto;
     @media(max-width: 950px){
-        max-height: 350px;
+        max-height: 300px;
     }
 `,w9=j.div`
     width:100%;
@@ -167,6 +167,9 @@ Error generating stack: `+o.message+`
     justify-content: space-between;
 `,_9=j.div`
     width:48%;
+    @media(max-width: 950px){
+        width:30%;
+    }
 `,A9=j.div`
     width:48%;
 `,C9=j.button`
@@ -178,6 +181,9 @@ Error generating stack: `+o.message+`
     padding:2rem 0;
     font-weight: bold;
     cursor:pointer;
+    @media(max-width: 950px){
+        padding:1.5rem 0;
+    }
 `,E9=j.div`
     width:100%;
     display:flex;
@@ -191,6 +197,9 @@ Error generating stack: `+o.message+`
     padding:2rem 0.3rem;
     width:49%;
     color: black;
+    @media(max-width: 950px){
+        padding:1.5rem 0;
+    }
 `,R9=j(ai.div)`
     top: 0;
     position: fixed;
@@ -700,12 +709,14 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     font-size:0.9rem;
 `,xF=e=>{or.post("https://honey-valley.onrender.com/api/user-info",{first_name:e.first_name,last_name:e.last_name,email:e.email,country:e.country,address:e.address,apartament:e.apartament,postal_code:e.postal_code,city:e.city,phone:e.phone}).then(({data:t})=>{console.log(t)}).catch(t=>{console.log(t)})},wF=()=>{const{data:e,isLoading:t}=Ao(),r=nr(o=>o.formDataUserInfo),n=mr(),i=o=>{o.preventDefault(),xF(r)};return t?A.jsx("div",{children:"Loading..."}):e?A.jsxs(hF,{children:[A.jsx(Eo,{}),A.jsxs(mF,{children:[A.jsxs(gF,{children:[A.jsxs("h1",{children:[e.first_name," ",e.last_name]}),A.jsx("p",{style:{margin:"1rem 0"},children:e.email}),A.jsxs("p",{style:{margin:"1rem 0"},children:["created at: ",e.createdAt.slice(0,10)]}),A.jsx("h1",{style:{margin:"1rem 0"},children:"Your Products: "}),A.jsx("p",{style:{color:"grey",margin:"1rem 0"},children:"No products!"})]}),A.jsxs(yF,{children:[A.jsx("h3",{children:"Contact: "}),A.jsxs(vF,{children:[A.jsx(Ko,{placeholder:e.email?e.email:"Email",onChange:o=>n(gb(o.target.value))}),A.jsx(Ko,{placeholder:e.country?e.country:"Country",onChange:o=>n(yb(o.target.value))}),A.jsxs(U1,{children:[A.jsx(Za,{placeholder:e.first_name?e.first_name:"First Name",onChange:o=>n(hb(o.target.value))}),A.jsx(Za,{placeholder:e.last_name?e.last_name:"Last Name",onChange:o=>n(mb(o.target.value))})]}),A.jsx(Ko,{placeholder:e.address?e.address:"Address",onChange:o=>n(vb(o.target.value))}),A.jsx(Ko,{placeholder:e.apartament?e.apartament:"Apartament",onChange:o=>n(Sb(o.target.value))}),A.jsxs(U1,{children:[A.jsx(Za,{placeholder:e.postal_code?e.postal_code:"Postal Code",onChange:o=>n(xb(o.target.value))}),A.jsx(Za,{placeholder:e.city?e.city:"City",onChange:o=>n(wb(o.target.value))})]}),A.jsx(Ko,{placeholder:e.phone?e.phone:"Phone Number",onChange:o=>n(_b(o.target.value))}),A.jsx(SF,{onClick:o=>i(o),children:"Accept"})]})]})]})]}):A.jsx(e2,{to:"/login",replace:!0})};function _F(){const{pathname:e}=wo();return P.useEffect(()=>{window.scrollTo(0,0)},[e]),null}const AF=j.div`
     width: 100%;
+    max-height: 100vh;
+    overflow-y: auto;
 `,CF=j.div`
     display: flex;
     width: 80%;
     flex-wrap:wrap;
     gap:3rem;
-    margin: 3rem auto 1rem auto;
+    margin: 1.5rem auto 1rem auto;
 `,EF=j.div`
     width: 49%;
     padding:1rem;
@@ -724,6 +735,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     text-align: center;
     width: 100%;
     font-size:3rem;
+    @media(max-width: 950px){
+        font-size:1.5rem;
+    }
 `,TF=j.form`
     margin: auto;
 `,Yo=j.input`
@@ -733,6 +747,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     padding: 0.8rem;
     margin:1rem 0;
     font-size:0.9rem;
+    @media(max-width: 950px){
+        font-size:0.8rem;
+        padding: 0.5rem;
+    }
 `,$F=j.button`
     border: none;
     padding: 1rem 2rem;
@@ -741,6 +759,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     font-size:1rem;
     margin:1rem 0;
     background-color:rgb(236, 192, 45);
+    @media(max-width: 950px){
+        font-size:0.9rem;
+        padding: 0.8rem 1.5rem;
+    }
 `,j1=j.div`
     display: flex;
     justify-content: space-between;
@@ -752,9 +774,13 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     padding: 0.8rem;
     margin:1rem 0;
     font-size:0.9rem;
+    @media(max-width: 950px){
+        font-size:0.8rem;
+        padding: 0.5rem;
+    }
 `,V1=j.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 1.5rem 0 1.5rem 0 ;
-`,OF=({img:e,name:t,price:r})=>A.jsxs("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between"},children:[A.jsx("img",{style:{width:"15%",padding:"0.5rem",borderRadius:"0.5rem",border:"1px solid grey",margin:"1rem 0.5rem"},src:e,alt:t}),A.jsx("p",{style:{fontWeight:"bold",fontSize:"0.8rem"},children:t}),A.jsxs("p",{style:{fontWeight:"bold",fontSize:"1rem"},children:[r,"0 €"]})]}),MF=e=>{or.post("https://honey-valley.onrender.com/api/checkout",{data:e}).then(({data:t})=>{location.href=t.url}).catch(t=>{console.log(t)})},kF=()=>{const{data:e}=Ao(),{cart:t,subtotal:r}=rg(),n=i=>{i.preventDefault(),MF(t)};return e?e?A.jsx(AF,{children:A.jsxs(CF,{children:[A.jsxs(EF,{children:[A.jsx(Nt,{to:"/",style:{textDecoration:"none",color:"black"},children:A.jsx(RF,{children:"Honey Valley"})}),A.jsx("h3",{style:{margin:"1.5rem 0"},children:"Contact:"}),A.jsxs(TF,{children:[A.jsx(Yo,{placeholder:"Email",defaultValue:e.email&&e.email,type:"email"}),A.jsx(Yo,{placeholder:"Country",defaultValue:e.country&&e.country}),A.jsxs(j1,{children:[A.jsx(Ga,{placeholder:"First Name",defaultValue:e.first_name&&e.first_name}),A.jsx(Ga,{placeholder:"Last Name",defaultValue:e.last_name&&e.last_name})]}),A.jsx(Yo,{placeholder:"Address",defaultValue:e.address&&e.address}),A.jsx(Yo,{placeholder:"Apartament",defaultValue:e.apartament&&e.apartament}),A.jsxs(j1,{children:[A.jsx(Ga,{placeholder:"Postal Code",defaultValue:e.postal_code&&e.postal_code}),A.jsx(Ga,{placeholder:"City",defaultValue:e.city&&e.city})]}),A.jsx(Yo,{placeholder:"Phone Number",type:"number",defaultValue:e.phone&&e.phone}),A.jsx($F,{onClick:i=>n(i),children:"Pay"})]})]}),A.jsxs(PF,{children:[t?t.map(i=>A.jsx(OF,{img:i.img,price:i.price,name:i.name},i.id)):A.jsx(hA,{}),A.jsx("hr",{style:{margin:"1rem 0"}}),A.jsxs(V1,{children:[A.jsx("p",{children:"Subtotal: "}),A.jsxs("p",{style:{fontWeight:"bold"},children:[Math.round(r*10)/10," €"]})]}),A.jsxs(V1,{children:[A.jsx("p",{children:"Total: "}),A.jsxs("p",{style:{fontWeight:"bold",fontSize:"1.5rem"},children:[Math.round(r*10)/10," €"]})]})]})]})}):A.jsx(e2,{to:"/login",replace:!0}):A.jsx("div",{children:"Loading..."})};function IF(){return A.jsxs(N3,{store:$L,children:[A.jsxs(Pk,{children:[A.jsx(_F,{}),A.jsxs(xk,{children:[A.jsx(ln,{path:"/",element:A.jsx(eL,{})}),A.jsx(ln,{path:"/shop",element:A.jsx(SL,{})}),A.jsx(ln,{path:"/shop/product/:id",element:A.jsx(kL,{})}),A.jsx(ln,{path:"/register",element:A.jsx(aF,{})}),A.jsx(ln,{path:"/login",element:A.jsx(pF,{})}),A.jsx(ln,{path:"/account",element:A.jsx(wF,{})}),A.jsx(ln,{path:"/checkout/:id",element:A.jsx(kF,{})})]})]}),A.jsx(OL,{})]})}Ff.createRoot(document.getElementById("root")).render(A.jsx(Hr.StrictMode,{children:A.jsx(IF,{})}));
+`,OF=({img:e,name:t,price:r})=>A.jsxs("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between"},children:[A.jsx("img",{style:{width:"15%",padding:"0.5rem",borderRadius:"0.5rem",border:"1px solid grey",margin:"1rem 0.5rem"},src:e,alt:t}),A.jsx("p",{style:{fontWeight:"bold",fontSize:"0.8rem"},children:t}),A.jsxs("p",{style:{fontWeight:"bold",fontSize:"1rem"},children:[r,"0 €"]})]}),MF=e=>{or.post("https://honey-valley.onrender.com/api/checkout",{data:e}).then(({data:t})=>{location.href=t.url}).catch(t=>{console.log(t)})},kF=()=>{const{data:e}=Ao(),{cart:t,subtotal:r}=rg(),n=i=>{i.preventDefault(),MF(t)};return e?e?A.jsx(AF,{children:A.jsxs(CF,{children:[A.jsxs(EF,{children:[A.jsx(Nt,{to:"/",style:{textDecoration:"none",color:"black"},children:A.jsx(RF,{children:"Honey Valley"})}),A.jsx("h3",{style:{margin:"1.5rem 0"},children:"Contact:"}),A.jsxs(TF,{children:[A.jsx(Yo,{placeholder:"Email",defaultValue:e.email&&e.email,type:"email"}),A.jsx(Yo,{placeholder:"Country",defaultValue:e.country&&e.country}),A.jsxs(j1,{children:[A.jsx(Ga,{placeholder:"First Name",defaultValue:e.first_name&&e.first_name}),A.jsx(Ga,{placeholder:"Last Name",defaultValue:e.last_name&&e.last_name})]}),A.jsx(Yo,{placeholder:"Address",defaultValue:e.address&&e.address}),A.jsx(Yo,{placeholder:"Apartament",defaultValue:e.apartament&&e.apartament}),A.jsxs(j1,{children:[A.jsx(Ga,{placeholder:"Postal Code",defaultValue:e.postal_code&&e.postal_code}),A.jsx(Ga,{placeholder:"City",defaultValue:e.city&&e.city})]}),A.jsx(Yo,{placeholder:"Phone Number",type:"number",defaultValue:e.phone&&e.phone}),A.jsx($F,{onClick:i=>n(i),children:"Pay"})]})]}),A.jsxs(PF,{children:[t?t.map(i=>A.jsx(OF,{img:i.img,price:i.price,name:i.name},i.id)):A.jsx(hA,{}),A.jsx("hr",{style:{margin:"1rem 0"}}),A.jsx(V1,{children:A.jsxs("p",{children:["Subtotal: ",Math.round(r*10)/10," €"]})}),A.jsx(V1,{children:A.jsxs("p",{children:["Total: ",A.jsxs("span",{style:{fontWeight:"bold",fontSize:"1.5rem"},children:[Math.round(r*10)/10," €"]})]})})]})]})}):A.jsx(e2,{to:"/login",replace:!0}):A.jsx("div",{children:"Loading..."})};function IF(){return A.jsxs(N3,{store:$L,children:[A.jsxs(Pk,{children:[A.jsx(_F,{}),A.jsxs(xk,{children:[A.jsx(ln,{path:"/",element:A.jsx(eL,{})}),A.jsx(ln,{path:"/shop",element:A.jsx(SL,{})}),A.jsx(ln,{path:"/shop/product/:id",element:A.jsx(kL,{})}),A.jsx(ln,{path:"/register",element:A.jsx(aF,{})}),A.jsx(ln,{path:"/login",element:A.jsx(pF,{})}),A.jsx(ln,{path:"/account",element:A.jsx(wF,{})}),A.jsx(ln,{path:"/checkout/:id",element:A.jsx(kF,{})})]})]}),A.jsx(OL,{})]})}Ff.createRoot(document.getElementById("root")).render(A.jsx(Hr.StrictMode,{children:A.jsx(IF,{})}));
