@@ -12,15 +12,22 @@ Welcome to the Honey Shop on the Internet project! This web application allows u
 - Secure payment processing using Stripe
 
 ## Technologies Used
+### Frontend
 - React with TypeScript
 - React Router
 - Redux with Thunk
 - Axios
 - Vite
+### Backend
 - Express with TypeScript
-- MySQL
+- MySQL set on AWS RDS
 - Prisma
+- JWT Token to Auth
 - Stripe
+### Payment Processing:
+- Stripe gateway to buy something in app
+### Deployment:
+- Render
 ## Installation
 To access the Honey Valley, simply visit our website at https://honey-valley.onrender.com using any modern web browser. No additional installation or downloads are required.
 ## License
